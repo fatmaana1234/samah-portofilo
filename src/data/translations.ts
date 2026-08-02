@@ -19,7 +19,7 @@ export const translations = {
     // Hero
     heroGreeting: 'أهلاً بك، أنا',
     heroRoleTag: 'تخصص مزدوج بين الرعاية الصحية والإبداع الرقمي الشامل',
-    heroBio: 'امتياز تمريض (كلية التمريض، جامعة المنصورة) ومصممة محتوى رقمي وجرافيك متكاملة. لا تقتصر مهاراتي على عروض البوربوينت فقط، بل تشمل تنسيق وتأطير ملفات الوورد، تصميم البوسترات الإنفوجرافيك، الفيديوهات التوعوية القصيرة، وتصاميم السوشيال ميديا.',
+    heroBio: 'امتياز تمريض (كلية التمريض، جامعة قنا) ومصممة محتوى رقمي وجرافيك متكاملة. لا تقتصر مهاراتي على عروض البوربوينت فقط، بل تشمل تنسيق وتأطير ملفات الوورد، تصميم البوسترات الإنفوجرافيك، الفيديوهات التوعوية القصيرة، وتصاميم السوشيال ميديا.',
     heroCtaPortfolio: 'استكشف معرض الأعمال على درايف 📁',
     heroCtaServices: 'اطلب خدمة الآن',
     heroCtaDownloadCV: 'تحميل كارت التعريف (vCard)',
@@ -27,7 +27,7 @@ export const translations = {
     
     // Hero Stats
     statDegree: 'بكالوريوس تمريض',
-    statDegreeSub: 'جامعة المنصورة - تقدير ممتاز',
+    statDegreeSub: 'جامعة قنا - تقدير ممتاز',
     statSpecialty: 'تصميم جرافيك ومحتوى شامل',
     statSpecialtySub: 'PowerPoint, Word, Videos, Graphic Design',
     statVolunteering: 'عمل تطوعي قيادي',
@@ -36,7 +36,7 @@ export const translations = {
     // About
     aboutTitle: 'عن سماح ربيع',
     aboutSubtitle: 'الجمع بين الخبرة التمريضية والإبداع الجرافيكي الرقمي الشامل',
-    aboutP1: 'أنا امتياز تمريض من محافظة المنصورة، مصر، أحمل شغفاً كبيراً بنشر التوعية الصحية والطبية وبناء الهويات البصرية المتميزة. أؤمن بأن المعلومة القيمة والمحتوى الأكاديمي أو الطبي يزداد تأثيراً عند تقديمه في قالب جرافيكي جذاب وسهل القراءة.',
+    aboutP1: 'أنا امتياز تمريض من محافظة الدقهلية، خريجة كلية التمريض جامعة قنا، أحمل شغفاً كبيراً بنشر التوعية الصحية والطبية وبناء الهويات البصرية المتميزة. أؤمن بأن المعلومة القيمة والمحتوى الأكاديمي أو الطبي يزداد تأثيراً عند تقديمه في قالب جرافيكي جذاب وسهل القراءة.',
     aboutP2: 'أقدم خدمات تصميم متكاملة تشمل: عروض بوربوينت البرزنتيشن، تنسيق أبحاث وتقارير Word، بوسترات وإنفوجرافيك طبي، مونتاج وتعديل الفيديوهات، وتصاميم السوشيال ميديا، مع الالتزام الكامل بالدقة وأعلى معايير الجودة.',
     aboutPillar1Title: 'دراسة وتخصص تمريضي',
     aboutPillar1Desc: 'خلفية أكاديمية متينة من كلية التمريض وسهولة تبسيط وعرض المفاهيم الطبية والعلمية.',
@@ -137,13 +137,13 @@ export const translations = {
     btnEmailDirect: 'إرسال إيميل مباشر ✉️',
     successMsg: 'شكراً لك! تم تجهيز وتأكيد رسالتك بنجاح.',
     contactInfoTitle: 'معلومات الاتصال المباشرة',
-    locationText: 'محافظة المنصورة، جمهورية مصر العربية',
+    locationText: 'محافظة الدقهلية، جمهورية مصر العربية',
     emailText: 'samahrabea06@gmail.com',
     linkedinText: 'linkedin.com/in/samah-rabie',
 
     // Footer
     footerRights: 'جميع الحقوق محفوظة © 2026 - سماح ربيع محمود علي',
-    footerSub: 'امتياز تمريض & مصممة محتوى رقمي وجرافيك (بوربوينت، وورد، فيديوهات، وتصاميم طبية). المنصورة، مصر.',
+    footerSub: 'امتياز تمريض & مصممة محتوى رقمي وجرافيك (بوربوينت، وورد، فيديوهات، وتصاميم طبية). جامعة قنا، مصر.',
     btnBackToTop: 'الأعلى ⬆️'
   },
   en: {
@@ -166,7 +166,7 @@ export const translations = {
     // Hero
     heroGreeting: 'Hello & Welcome, I am',
     heroRoleTag: 'Dual Specialty in Nursing Healthcare & Versatile Digital Graphic Design',
-    heroBio: 'Nursing Intern (Faculty of Nursing, Mansoura University, Egypt) and comprehensive Digital Content & Graphic Designer. Beyond PowerPoint decks, I specialize in formatted Word research, educational infographics, video editing, and social media graphic assets.',
+    heroBio: 'Nursing Intern (Faculty of Nursing, Qena University, Egypt) and comprehensive Digital Content & Graphic Designer. Beyond PowerPoint decks, I specialize in formatted Word research, educational infographics, video editing, and social media graphic assets.',
     heroCtaPortfolio: 'Explore Portfolio on Google Drive 📁',
     heroCtaServices: 'Request Service',
     heroCtaDownloadCV: 'Download Contact Card (vCard)',
@@ -174,7 +174,7 @@ export const translations = {
 
     // Hero Stats
     statDegree: 'Bachelor of Nursing',
-    statDegreeSub: 'Mansoura University - Excellent Honors',
+    statDegreeSub: 'Qena University - Excellent Honors',
     statSpecialty: 'Comprehensive Digital Design',
     statSpecialtySub: 'PowerPoint, Word, Video & Graphic Design',
     statVolunteering: 'Leadership & Volunteering',
@@ -183,10 +183,10 @@ export const translations = {
     // About
     aboutTitle: 'About Samah Rabie',
     aboutSubtitle: 'Connecting Clinical Healthcare Expertise with Multi-Disciplinary Graphic Design',
-    aboutP1: 'I am a Nursing Intern based in Mansoura, Egypt, with a strong passion for healthcare awareness and visual digital communication. I believe that clinical knowledge and academic research reach their maximum impact when paired with crisp typography, structured layouts, and appealing aesthetics.',
+    aboutP1: 'I am a Nursing Intern from Dakahlia Governorate, Egypt, and a graduate of Faculty of Nursing, Qena University, with a strong passion for healthcare awareness and visual digital communication. I believe that clinical knowledge and academic research reach their maximum impact when paired with crisp typography, structured layouts, and appealing aesthetics.',
     aboutP2: 'I offer end-to-end design services including: high-impact PowerPoint presentations, publication-ready Word documents, clinical posters & infographics, short awareness video editing, and social media graphic design.',
     aboutPillar1Title: 'Clinical & Nursing Degree',
-    aboutPillar1Desc: 'Solid nursing education from Faculty of Nursing, Mansoura University, with ability to digest complex medical topics.',
+    aboutPillar1Desc: 'Solid nursing education from Faculty of Nursing, Qena University, with ability to digest complex medical topics.',
     aboutPillar2Title: 'Full Digital Graphic Design',
     aboutPillar2Desc: 'Creative execution across PowerPoint, Word, Canva Pro, graphic tools, and video editing.',
     aboutPillar3Title: 'HR & Public Health Leadership',
@@ -284,13 +284,13 @@ export const translations = {
     btnEmailDirect: 'Send Direct Email ✉️',
     successMsg: 'Thank you! Your message has been prepared successfully.',
     contactInfoTitle: 'Direct Contact Details',
-    locationText: 'Mansoura Governorate, Egypt',
+    locationText: 'Dakahlia Governorate, Egypt',
     emailText: 'samahrabea06@gmail.com',
     linkedinText: 'linkedin.com/in/samah-rabie',
 
     // Footer
     footerRights: 'All Rights Reserved © 2026 - Samah Rabie Mahmoud Ali',
-    footerSub: 'Nursing Intern & Comprehensive Digital Content Designer (PowerPoint, Word, Video & Medical Graphics). Mansoura, Egypt.',
+    footerSub: 'Nursing Intern & Comprehensive Digital Content Designer (PowerPoint, Word, Video & Medical Graphics). Qena University, Egypt.',
     btnBackToTop: 'Back to Top ⬆️'
   }
 };

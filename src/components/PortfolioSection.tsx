@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Language, Theme, PortfolioCategory, PortfolioItem } from '../types';
 import { samplePortfolioProjects, GOOGLE_DRIVE_FOLDER_URL } from '../data/portfolioData';
 import { translations } from '../data/translations';
-import { PresentationSimulator } from './PresentationSimulator';
 import { AdminLoginModal } from './AdminLoginModal';
 import { 
   Sparkles, 
@@ -246,11 +245,6 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ lang, theme 
             );
           })}
         </div>
-
-        {/* Interactive PowerPoint Simulator Highlight (if PowerPoint tab selected or Sample Mode) */}
-        {useSampleData && (activeCategory === 'all' || activeCategory === 'powerpoint') && (
-          <PresentationSimulator lang={lang} theme={theme} />
-        )}
 
         {/* Projects Grid or Empty Uploaded Notice */}
         {filteredProjects.length === 0 ? (

@@ -179,13 +179,13 @@ export const initialExperiences: ExperienceItem[] = [
     id: 'nursing-intern',
     roleAr: 'امتياز تمريض (Nursing Intern)',
     roleEn: 'Nursing Intern',
-    organizationAr: 'كلية التمريض - جامعة المنصورة والمستشفيات الجامعية',
-    organizationEn: 'Faculty of Nursing, Mansoura University & Hospitals',
+    organizationAr: 'كلية التمريض - جامعة قنا والمستشفيات الجامعية',
+    organizationEn: 'Faculty of Nursing, Qena University & Hospitals',
     periodAr: 'حالياً (سنة الامتياز)',
     periodEn: 'Present (Internship Year)',
     type: 'work',
-    descAr: 'تطبيق الرعاية التمريضية المباشرة للمرضى، التثقيف الصحي الميداني، والمشاركة في خطط الرعاية الطبية مع الكوادر الطبية بالمنصورة.',
-    descEn: 'Delivering direct clinical nursing care, patient health education, and contributing to comprehensive care plans in university clinical departments in Mansoura.',
+    descAr: 'تطبيق الرعاية التمريضية المباشرة للمرضى، التثقيف الصحي الميداني، والمشاركة في خطط الرعاية الطبية مع الكوادر الطبية بجامعة قنا.',
+    descEn: 'Delivering direct clinical nursing care, patient health education, and contributing to comprehensive care plans in university clinical departments in Qena.',
     highlightsAr: [
       'تطبيق أعلى معايير سلامة المرضى والرعاية التمريضية بالمستشفيات الجامعية',
       'تثقيف المرضى وعائلاتهم حول الرعاية الذاتية والوقاية في أقسام التمريض المختلفة',
@@ -223,7 +223,7 @@ export const initialExperiences: ExperienceItem[] = [
     id: 'head-public-health',
     roleAr: 'رئيس لجنة الصحة العامة (Head of Public Health Committee)',
     roleEn: 'Head of Public Health Committee',
-    organizationAr: 'لجان المبادرات والأنشطة الطلابية والتوعوية بالمنصورة',
+    organizationAr: 'لجان المبادرات والأنشطة الطلابية والتوعوية بجامعة قنا',
     organizationEn: 'Public Health Committees & Student Initiatives',
     periodAr: 'دور قيادي سابق',
     periodEn: 'Previous Leadership Role',
@@ -267,20 +267,20 @@ export const initialExperiences: ExperienceItem[] = [
     id: 'education-nursing',
     roleAr: 'بكالوريوس التمريض - تقدير ممتاز',
     roleEn: 'Bachelor of Nursing - Graduated with Excellent Distinction',
-    organizationAr: 'كلية التمريض - جامعة المنصورة (Mansoura University)',
-    organizationEn: 'Faculty of Nursing, Mansoura University',
-    periodAr: 'المنصورة، مصر',
-    periodEn: 'Mansoura, Egypt',
+    organizationAr: 'كلية التمريض - جامعة قنا (Qena University)',
+    organizationEn: 'Faculty of Nursing, Qena University',
+    periodAr: 'جامعة قنا، مصر',
+    periodEn: 'Qena, Egypt',
     type: 'education',
-    descAr: 'التخرج بتقدير عام "ممتاز" طوال سنوات الدراسة الأكاديمية بكلية التمريض جامعة المنصورة، مع التميز في مشاريع التثقيف الصحي والعروض التقديمية.',
-    descEn: 'Graduated with "Excellent" academic performance throughout university years at Mansoura University Faculty of Nursing.',
+    descAr: 'التخرج بتقدير عام "ممتاز" طوال سنوات الدراسة الأكاديمية بكلية التمريض جامعة قنا، مع التميز في مشاريع التثقيف الصحي والعروض التقديمية.',
+    descEn: 'Graduated with "Excellent" academic performance throughout university years at Qena University Faculty of Nursing.',
     highlightsAr: [
-      'تقدير ممتاز طوال سنوات الدراسة الأكاديمية بجامعة المنصورة',
+      'تقدير ممتاز طوال سنوات الدراسة الأكاديمية بجامعة قنا',
       'المشاركة النشطة في المؤتمرات العلمية والأنشطة الطلابية والتثقيف الطبي',
       'إعداد وتصميم مادة العروض التقديمية والأبحاث الأكاديمية بأسلوب جرافيكي مميز'
     ],
     highlightsEn: [
-      'Maintained Excellent grade distinction at Mansoura University',
+      'Maintained Excellent grade distinction at Qena University',
       'Active participant in scientific symposiums & healthcare awareness',
       'Designed presentation decks and academic research papers'
     ]
@@ -517,7 +517,145 @@ export const samplePortfolioProjects: PortfolioItem[] = [
   },
 
   // ==========================================
-  // --- 3. VIDEOS SECTION (قسم الفيديوز 🎬) ---
+  // --- 3. WORD SECTION (قسم مستندات وورد 📄) ---
+  // ==========================================
+  {
+    id: 'word-doc-01',
+    titleAr: 'مستند وورد: بحث وتنسيق أكاديمي طبي (الملف الأول)',
+    titleEn: 'Formatted Medical Research Word Document 01',
+    category: 'word',
+    descriptionAr: 'تنسيق وتأطير بحث طبي وأكاديمي ببرنامج Word مع ضبط الهوامش، العناوين، والجداول وفهرسة مراجع دقيقة.',
+    descriptionEn: 'Professionally formatted Word document featuring automated tables of contents, academic typography, and clean margins.',
+    imageUrl: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80',
+    fileUrl: 'https://docs.google.com/document/d/1AsgswAopwkDhVmzh7oihorLg_aIXTgk5/edit?usp=drive_link&ouid=102103134286103692522&rtpof=true&sd=true',
+    tags: ['Microsoft Word', 'Medical Research', 'Academic Formatting', 'Word Document'],
+    software: ['Microsoft Word', 'Citation Tools'],
+    featured: true
+  },
+  {
+    id: 'word-doc-02',
+    titleAr: 'مستند وورد: تقرير الرعاية التمريضية السريرية (الملف الثاني)',
+    titleEn: 'Clinical Nursing & Research Word Report 02',
+    category: 'word',
+    descriptionAr: 'تقرير تمريضي وسريري منسق بدقة متناهية يشتمل على جداول علامات حيوية وهيكلة احترافية.',
+    descriptionEn: 'Formatted clinical nursing research document with structured headings, diagnostic tables, and citation references.',
+    imageUrl: 'https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1200&q=80',
+    fileUrl: 'https://docs.google.com/document/d/1-qoO2GCW-yfa2ZHUySx8B_CNQ1fmK8O4/edit?usp=drive_link&ouid=102103134286103692522&rtpof=true&sd=true',
+    tags: ['Microsoft Word', 'Clinical Nursing', 'Report Formatting', 'Word'],
+    software: ['Microsoft Word'],
+    featured: true
+  },
+  {
+    id: 'word-doc-03',
+    titleAr: 'مستند وورد: دراسة حالة وتثقيف صحي (الملف الثالث)',
+    titleEn: 'Medical Case Study & Education Word Doc 03',
+    category: 'word',
+    descriptionAr: 'تنسيق وتأطير دراسة حالة طبية وتوثيق الأبحاث والنصوص بأسلوب نشر دقيق ومريح للعين.',
+    descriptionEn: 'Clinical case study report formatted to publication standard with styled figures and reference lists.',
+    imageUrl: 'https://images.unsplash.com/photo-1584697964400-2ae6a2f620ac?auto=format&fit=crop&w=1200&q=80',
+    fileUrl: 'https://docs.google.com/document/d/1PTRmuGevFujLR0TW42smqLOWVZqxSEZE/edit?usp=drive_link&ouid=102103134286103692522&rtpof=true&sd=true',
+    tags: ['Microsoft Word', 'Case Study', 'Medical Research'],
+    software: ['Microsoft Word'],
+    featured: true
+  },
+  {
+    id: 'word-doc-04',
+    titleAr: 'مستند وورد: مشروع تخرج وأوراق علمية (الملف الرابع)',
+    titleEn: 'Academic Thesis & Graduation Project Word Doc 04',
+    category: 'word',
+    descriptionAr: 'تنسيق أوراق العمل ومشروع التخرج الأكاديمي مع فهارس تلقائية وضبط العناوين الرئيسية والفرعية.',
+    descriptionEn: 'Academic graduation thesis formatted in Word with standardized margins, table of contents, and headers.',
+    imageUrl: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=1200&q=80',
+    fileUrl: 'https://docs.google.com/document/d/1_w1zW3mEy6r1MWhS-RjgsrQixTabUpmY/edit?usp=drive_link&ouid=102103134286103692522&rtpof=true&sd=true',
+    tags: ['Microsoft Word', 'Graduation Thesis', 'Academic Paper'],
+    software: ['Microsoft Word'],
+    featured: true
+  },
+  {
+    id: 'word-doc-05',
+    titleAr: 'مستند وورد: دليل إرشادات الرعاية الصحية (الملف الخامس)',
+    titleEn: 'Healthcare Guidelines & Clinical Manual Word Doc 05',
+    category: 'word',
+    descriptionAr: 'تأطير ودليل إرشادات سريرية منسق ببرنامج Word مع إبراز الفقرات وجداول التقييم الطبي.',
+    descriptionEn: 'Clinical practice manual formatted with custom tables, styled callouts, and clean section breaks.',
+    imageUrl: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80',
+    fileUrl: 'https://docs.google.com/document/d/1bZlm74vtP_Q5X8Ngn-Lvgv0TwD3FjdQZ/edit?usp=drive_link&ouid=102103134286103692522&rtpof=true&sd=true',
+    tags: ['Microsoft Word', 'Healthcare Manual', 'Clinical Protocol'],
+    software: ['Microsoft Word'],
+    featured: false
+  },
+  {
+    id: 'word-doc-06',
+    titleAr: 'مستند وورد: تقرير التثقيف والمبادرات الطبية (الملف السادس)',
+    titleEn: 'Public Health Campaign Report Word Doc 06',
+    category: 'word',
+    descriptionAr: 'تنسيق تقرير المبادرات والحملات الصحية بإخراج متميز وجداول إحصائية منظمة.',
+    descriptionEn: 'Public health initiative summary report formatted with structured tables and clear layout.',
+    imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
+    fileUrl: 'https://docs.google.com/document/d/1jzX9e4udUG_iVaXe6sG0zq7-1aL2V2_N/edit?usp=drive_link&ouid=102103134286103692522&rtpof=true&sd=true',
+    tags: ['Microsoft Word', 'Health Campaign', 'Report Formatting'],
+    software: ['Microsoft Word'],
+    featured: false
+  },
+  {
+    id: 'word-doc-07',
+    titleAr: 'مستند وورد: بحث أكاديمي وتوثيق مراجع (الملف السابع)',
+    titleEn: 'Academic Research & Citation Document Word Doc 07',
+    category: 'word',
+    descriptionAr: 'تنسيق وتوثيق المراجع والأبحاث العلمية وفق القياسات المعتمَدة دور النشر والجامعات.',
+    descriptionEn: 'Academic research paper with citation styling, automated lists, and standardized typography.',
+    imageUrl: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1200&q=80',
+    fileUrl: 'https://docs.google.com/document/d/1HwYx574fPP00aIYFJmhOTh-ke-0CuYA4/edit?usp=drive_link&ouid=102103134286103692522&rtpof=true&sd=true',
+    tags: ['Microsoft Word', 'Academic Citation', 'Research Paper'],
+    software: ['Microsoft Word'],
+    featured: false
+  },
+  {
+    id: 'word-doc-08',
+    titleAr: 'مستند وورد: ملف البروتوكولات التمريضية (الملف الثامن)',
+    titleEn: 'Nursing Protocol & Discharge Care Manual Word Doc 08',
+    category: 'word',
+    descriptionAr: 'تنسيق وتأطير ملف الإرشادات والبروتوكولات التمريضية بأسلوب واضح ومريح وجاهز للطباعة.',
+    descriptionEn: 'Nursing protocols and discharge care manual styled with clean typography and structured lists.',
+    imageUrl: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80',
+    fileUrl: 'https://docs.google.com/document/d/1uHyHbUQXVj9okU4vFj_7qwhymTEgvGOY/edit?usp=drive_link&ouid=102103134286103692522&rtpof=true&sd=true',
+    tags: ['Microsoft Word', 'Nursing Protocols', 'Care Manual'],
+    software: ['Microsoft Word'],
+    featured: false
+  },
+
+  // ====================================================
+  // --- 4. GRAPHIC DESIGN & POSTERS (قسم الجرافيك 🎨) ---
+  // ====================================================
+  {
+    id: 'graphic-design-master-folder-posters',
+    titleAr: 'مجلد تصاميم الجرافيك والبوسترات الطبية الشامل (الفولدر الكامل)',
+    titleEn: 'Complete Graphic Design & Medical Posters Drive Folder',
+    category: 'posters',
+    descriptionAr: 'المجلد الكامل الشامل على Google Drive لجميع تصاميم الجرافيك، البوسترات الطبية، والإنفوجرافيك التوعوي. يمكنك استعراض وتحميل كافة الأعمال مباشرة.',
+    descriptionEn: 'Full Google Drive folder featuring the complete catalog of graphic design artwork, healthcare posters, and medical infographics.',
+    fileUrl: 'https://drive.google.com/drive/folders/1GVqS4OyJq_LR847M9pogCr6XMzuRQTiJ?usp=drive_link',
+    imageUrl: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=80',
+    tags: ['Graphic Design', 'Medical Posters', 'Infographics', 'Drive Folder', 'Full Collection'],
+    software: ['Graphic Design', 'Canva Pro', 'Photoshop'],
+    featured: true
+  },
+  {
+    id: 'graphic-design-master-folder-social',
+    titleAr: 'معرض تصاميم السوشيال ميديا والبنرات الرقمية (الفولدر الشامل)',
+    titleEn: 'Full Social Media Graphic Design & Banners Folder',
+    category: 'social',
+    descriptionAr: 'فولدر Google Drive الشامل الذي يحتوي على كافة تصاميم السوشيال ميديا، البنرات التثقيفية، والستوريز المصممة للأنشطة والخدمات الطبية.',
+    descriptionEn: 'Comprehensive Google Drive folder containing all social media graphics, Instagram carousels, and digital banner assets.',
+    fileUrl: 'https://drive.google.com/drive/folders/1GVqS4OyJq_LR847M9pogCr6XMzuRQTiJ?usp=drive_link',
+    imageUrl: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80',
+    tags: ['Social Media Design', 'Banners', 'Full Folder', 'Google Drive'],
+    software: ['Graphic Design', 'Canva Pro', 'Social Media'],
+    featured: true
+  },
+
+  // ==========================================
+  // --- 5. VIDEOS SECTION (قسم الفيديوز 🎬) ---
   // ==========================================
   {
     id: 'video-work-01',
@@ -650,12 +788,12 @@ export const samplePortfolioProjects: PortfolioItem[] = [
     titleAr: 'فيديو الشرح الميداني والأنشطة الصحية (الفيديو العاشر)',
     titleEn: 'Clinical Nursing Field Practice Video 10',
     category: 'video',
-    descriptionAr: 'فيديو شارح يبرز الأنشطة الميدانية والتدريب التمريضي لجامعة المنصورة بأسلوب مونتاج مميز.',
+    descriptionAr: 'فيديو شارح يبرز الأنشطة الميدانية والتدريب التمريضي لجامعة قنا بأسلوب مونتاج مميز.',
     descriptionEn: 'Field video presentation demonstrating clinical nursing training and hospital practice.',
     imageUrl: 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=1200&q=80',
     fileUrl: 'https://drive.google.com/file/d/1f3gMFKPgIQI-AZQAjEEWaMhVJzlabjq2/view?usp=drive_link',
     videoUrl: 'https://drive.google.com/file/d/1f3gMFKPgIQI-AZQAjEEWaMhVJzlabjq2/view?usp=drive_link',
-    tags: ['Video Editing', 'Nursing Fieldwork', 'Clinical Practice', 'Mansoura'],
+    tags: ['Video Editing', 'Nursing Fieldwork', 'Clinical Practice', 'Qena University'],
     software: ['Video Editing', 'Audio Leveling'],
     featured: false
   },

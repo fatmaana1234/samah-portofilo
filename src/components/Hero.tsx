@@ -123,7 +123,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
               <span className={`px-3 py-1.5 rounded-lg border font-bold ${
                 isDark ? 'bg-emerald-900/60 border-emerald-700/50 text-emerald-300' : 'bg-emerald-100 border-emerald-300 text-emerald-900 shadow-sm'
               }`}>
-                {lang === 'ar' ? 'امتياز تمريض بالمنصورة' : 'Nursing Intern Mansoura'}
+                {lang === 'ar' ? 'امتياز تمريض بجامعة قنا' : 'Nursing Intern Qena Univ'}
               </span>
               <span className="text-sky-500 font-bold">•</span>
               <span className={`px-3 py-1.5 rounded-lg border font-bold ${
@@ -206,7 +206,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
             <div className="mt-8 pt-6 border-t border-emerald-900/30 flex flex-wrap items-center gap-6 text-xs sm:text-sm font-medium opacity-85">
               <div className="flex items-center gap-2 text-emerald-300">
                 <CheckCircle2 className="w-4 h-4 text-sky-400" />
-                <span>{lang === 'ar' ? 'جامعة المنصورة - تقدير ممتاز' : 'Mansoura Univ - Excellent Honors'}</span>
+                <span>{lang === 'ar' ? 'جامعة قنا - تقدير ممتاز' : 'Qena Univ - Excellent Honors'}</span>
               </div>
               <div className="flex items-center gap-2 text-teal-300">
                 <CheckCircle2 className="w-4 h-4 text-sky-400" />
@@ -244,7 +244,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
                 {/* Top Badge */}
                 <div className="w-full flex items-center justify-between z-10">
                   <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-900/70 text-emerald-300 border border-emerald-600/50">
-                    {lang === 'ar' ? 'تمريض المنصورة' : 'Mansoura Nursing'}
+                    {lang === 'ar' ? 'تمريض جامعة قنا' : 'Qena Nursing'}
                   </span>
                   <span className="px-3 py-1 rounded-full text-xs font-semibold bg-sky-900/70 text-sky-300 border border-sky-600/50">
                     {lang === 'ar' ? 'تصميم رقمي شامل' : 'Digital Graphic Design'}
@@ -279,7 +279,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
                     {lang === 'ar' ? 'سماح ربيع محمود علي' : 'Samah Rabie Mahmoud Ali'}
                   </div>
                   <div className={`text-[11px] font-bold ${isDark ? 'text-emerald-400' : 'text-emerald-700'}`}>
-                    {lang === 'ar' ? 'امتياز تمريض بالمنصورة • مصممة جرافيك • متطوعة YLY' : 'Nursing Intern • Graphic Designer • YLY Volunteer'}
+                    {lang === 'ar' ? 'امتياز تمريض بجامعة قنا • مصممة جرافيك • متطوعة YLY' : 'Nursing Intern • Graphic Designer • YLY Volunteer'}
                   </div>
                 </div>
 
@@ -358,7 +358,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
               {lang === 'ar' ? 'سماح ربيع محمود علي' : 'Samah Rabie Mahmoud Ali'}
             </h3>
             <p className="text-xs text-emerald-400 font-semibold mb-4">
-              {lang === 'ar' ? 'امتياز تمريض بالمنصورة & مصممة محتوى وجرافيك' : 'Mansoura Nursing Intern & Graphic Designer'}
+              {lang === 'ar' ? 'امتياز تمريض بجامعة قنا & مصممة محتوى وجرافيك' : 'Qena Nursing Intern & Graphic Designer'}
             </p>
 
             {/* Owner Upload Section (Protected by PIN) */}
