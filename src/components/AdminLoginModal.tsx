@@ -25,7 +25,7 @@ export const AdminLoginModal: React.FC<AdminLoginModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (username.trim().toLowerCase() === 'samah' && password.trim() === 'samah2026') {
+    if (username.trim().toLowerCase() === 'samahana' && password.trim() === 'samahana@#1') {
       onSuccess();
       onClose();
     } else {
@@ -85,7 +85,7 @@ export const AdminLoginModal: React.FC<AdminLoginModalProps> = ({
                 setUsername(e.target.value);
                 setError(false);
               }}
-              placeholder="e.g. samah"
+              placeholder="e.g. samahana"
               className={`w-full px-4 py-2.5 rounded-xl text-xs border outline-none ${
                 isDark ? 'bg-slate-950 border-purple-900/50 text-white focus:border-purple-500' : 'bg-slate-50 border-purple-200 text-slate-900'
               }`}

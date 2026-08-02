@@ -306,15 +306,15 @@ export const samplePortfolioProjects: PortfolioItem[] = [
   },
   {
     id: 'excel-hospital-statistics-matrix',
-    titleAr: 'جدول إدارة وإحصائيات المستشفيات واللجان الصحية',
-    titleEn: 'Healthcare Statistics & Hospital Management Matrix',
+    titleAr: 'مجلد درايف: ملف وأعمال إكسيل المتنوعة (Excel Drive Folder)',
+    titleEn: 'Google Drive Folder: Complete Excel Works & Spreadsheets',
     category: 'excel',
-    descriptionAr: 'جدول إكسيل تفاعلي يشتمل على جداول محورية (Pivot Tables) ورسوم بيانية لإدارة الموارد الصحية وإحصائيات المستشفيات والمبادرات.',
-    descriptionEn: 'Interactive Excel workbook featuring pivot tables, metric visualizers, and hospital administration resource matrices.',
+    descriptionAr: 'مجلد وملف شامل على Google Drive يضم كافة أعمال ونماذج إكسيل، والجداول المحورية، والإحصائيات الطبية التفاعلية. يمكنك فتح المجلد وتصفح جميع الملفات والأعمال مباشرة.',
+    descriptionEn: 'Comprehensive Google Drive folder containing Excel work spreadsheets, clinical data models, pivot tables, and statistical sheets.',
     imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-    fileUrl: 'https://docs.google.com/spreadsheets/d/1j6sL29WPZp29wjGJuwAgtrR25bNARSgr/edit?usp=drive_link&ouid=103224641045054112535&rtpof=true&sd=true',
-    tags: ['Microsoft Excel', 'Pivot Tables', 'Healthcare Admin', 'Statistics'],
-    software: ['Microsoft Excel', 'Pivot Tables', 'Visual Charts'],
+    fileUrl: 'https://drive.google.com/drive/folders/1U41cf3pbylT29RUXFL-A0lLINjp0_nBI?usp=sharing',
+    tags: ['Microsoft Excel', 'Google Drive Folder', 'Excel Portfolio', 'Statistics'],
+    software: ['Microsoft Excel', 'Google Drive'],
     featured: true
   },
 
