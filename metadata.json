@@ -1,0 +1,8 @@
+{
+  "name": "Samah Rabie - Portfolio",
+  "description": "Interactive dual-language portfolio for Samah Rabie Mahmoud Ali: Nursing Intern, Public Health & HR Volunteer, and Medical Content & Presentation Designer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
