@@ -39,10 +39,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
   
   const [showPhotoModal, setShowPhotoModal] = useState(false);
   const [customAvatar, setCustomAvatar] = useState<string | null>(null);
-  const [isOwnerUnlocked, setIsOwnerUnlocked] = useState(false);
-  const [showPinInput, setShowPinInput] = useState(false);
-  const [pinValue, setPinValue] = useState('');
-  const [pinError, setPinError] = useState('');
+  const [uploadSuccessMsg, setUploadSuccessMsg] = useState('');
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -56,12 +53,22 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      if (!file.type.startsWith('image/')) {
+        alert(lang === 'ar' ? 'الرجاء اختيار ملف صورة صحيح (PNG, JPG, JPEG, WEBP)' : 'Please select a valid image file');
+        return;
+      }
       const reader = new FileReader();
       reader.onload = (event) => {
         const result = event.target?.result as string;
         if (result) {
           setCustomAvatar(result);
-          localStorage.setItem('samah_custom_avatar_url', result);
+          try {
+            localStorage.setItem('samah_custom_avatar_url', result);
+          } catch (err) {
+            console.warn('LocalStorage size limit exceeded:', err);
+          }
+          setUploadSuccessMsg(lang === 'ar' ? 'تم تحديث ورفع صورة سماح الحقيقية بنجاح! ✨' : 'Samah real photo uploaded successfully! ✨');
+          setTimeout(() => setUploadSuccessMsg(''), 4000);
         }
       };
       reader.readAsDataURL(file);
@@ -71,18 +78,8 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
   const handleResetAvatar = () => {
     setCustomAvatar(null);
     localStorage.removeItem('samah_custom_avatar_url');
-  };
-
-  const handleVerifyPin = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (pinValue === '1234' || pinValue === '2026') {
-      setIsOwnerUnlocked(true);
-      setShowPinInput(false);
-      setPinValue('');
-      setPinError('');
-    } else {
-      setPinError(lang === 'ar' ? 'رمز المرور غير صحيح' : 'Incorrect passcode');
-    }
+    setUploadSuccessMsg(lang === 'ar' ? 'تمت إعادة الصورة الافتراضية' : 'Reset to default picture');
+    setTimeout(() => setUploadSuccessMsg(''), 3000);
   };
 
   const activeAvatarSrc = customAvatar || samahAvatarImg;
@@ -255,7 +252,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
                 <div 
                   className="relative my-2 group cursor-pointer transition-transform duration-300 hover:scale-[1.03]"
                   onClick={() => setShowPhotoModal(true)}
-                  title={lang === 'ar' ? 'انقر لتكبير الصورة الشخصية' : 'Click to enlarge portrait'}
+                  title={lang === 'ar' ? 'انقر لتكبير أو تغيير صورة سماح الحقيقية' : 'Click to view or upload Samah photo'}
                 >
                   <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1.5 bg-gradient-to-tr from-emerald-400 via-teal-300 to-sky-400 shadow-xl relative animate-pulse">
                     <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-emerald-300/40">
@@ -271,7 +268,27 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
                       </div>
                     </div>
                   </div>
+
+                  {/* Direct Quick Upload Badge Button */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      fileInputRef.current?.click();
+                    }}
+                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] shadow-lg border border-emerald-300 flex items-center gap-1.5 z-20 hover:scale-105 transition-all"
+                    title={lang === 'ar' ? 'رفع صورتك الحقيقية من الجهاز' : 'Upload your photo'}
+                  >
+                    <Camera className="w-3.5 h-3.5 text-emerald-200 animate-pulse" />
+                    <span>{lang === 'ar' ? 'رفع صورة سماح' : 'Upload photo'}</span>
+                  </button>
                 </div>
+
+                {/* Notification toast if photo updated */}
+                {uploadSuccessMsg && (
+                  <div className="w-full my-2 p-2 rounded-xl bg-emerald-900/90 border border-emerald-400 text-emerald-200 text-xs font-bold text-center animate-in fade-in z-20">
+                    {uploadSuccessMsg}
+                  </div>
+                )}
 
                 {/* Bottom Quick Info */}
                 <div className={`w-full z-10 pt-2 border-t ${isDark ? 'border-emerald-900/40' : 'border-emerald-200'}`}>
@@ -322,7 +339,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
         </div>
       </div>
 
-      {/* Hidden File Input for Device Photo Upload (Only accessible when Owner is unlocked) */}
+      {/* Hidden File Input for Device Photo Upload */}
       <input
         type="file"
         ref={fileInputRef}
@@ -331,21 +348,18 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
         className="hidden"
       />
 
-      {/* Enlarged Photo Modal with Protected Owner Upload Access */}
+      {/* Enlarged Photo Modal with Direct Upload Controls */}
       {showPhotoModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-300">
           <div className="relative max-w-md w-full p-6 bg-slate-900 border border-emerald-500/40 rounded-3xl text-center shadow-2xl">
             <button
-              onClick={() => {
-                setShowPhotoModal(false);
-                setShowPinInput(false);
-              }}
+              onClick={() => setShowPhotoModal(false)}
               className="absolute top-4 end-4 p-2 rounded-full bg-slate-800 text-slate-300 hover:text-white hover:bg-emerald-950 transition-all"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="w-52 h-52 mx-auto rounded-full p-2 bg-gradient-to-tr from-emerald-400 via-teal-300 to-sky-400 shadow-2xl mb-4 relative group">
+            <div className="w-56 h-56 mx-auto rounded-full p-2 bg-gradient-to-tr from-emerald-400 via-teal-300 to-sky-400 shadow-2xl mb-4 relative group">
               <img
                 src={activeAvatarSrc}
                 alt="Samah Rabie - Nursing Professional"
@@ -357,96 +371,46 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
             <h3 className="text-lg font-black text-slate-100 mb-1">
               {lang === 'ar' ? 'سماح ربيع محمود علي' : 'Samah Rabie Mahmoud Ali'}
             </h3>
-            <p className="text-xs text-emerald-400 font-semibold mb-4">
+            <p className="text-xs text-emerald-400 font-semibold mb-5">
               {lang === 'ar' ? 'امتياز تمريض بجامعة قنا & مصممة محتوى وجرافيك' : 'Qena Nursing Intern & Graphic Designer'}
             </p>
 
-            {/* Owner Upload Section (Protected by PIN) */}
-            {isOwnerUnlocked ? (
-              <div className="mb-4 p-3 rounded-2xl bg-slate-800/90 border border-emerald-500/40 text-start space-y-2">
-                <div className="flex items-center justify-between text-xs text-emerald-300 font-bold">
-                  <span className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                    {lang === 'ar' ? 'وضع مالك الموقع مفعل' : 'Owner Mode Active'}
-                  </span>
-                  <button
-                    onClick={() => setIsOwnerUnlocked(false)}
-                    className="text-[10px] text-slate-400 hover:text-rose-300 underline"
-                  >
-                    {lang === 'ar' ? 'قفل الوضع' : 'Lock Admin'}
-                  </button>
-                </div>
-                <div className="flex gap-2 pt-1">
-                  <button
-                    onClick={() => fileInputRef.current?.click()}
-                    className="flex-1 py-2 px-3 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-1.5 transition-all shadow-md"
-                  >
-                    <Upload className="w-3.5 h-3.5" />
-                    <span>{lang === 'ar' ? 'رفع صورة جديدة من جهازك' : 'Upload photo'}</span>
-                  </button>
-                  {customAvatar && (
-                    <button
-                      onClick={handleResetAvatar}
-                      className="py-2 px-3 rounded-xl text-xs font-semibold bg-slate-700 hover:bg-slate-600 text-slate-200 flex items-center justify-center gap-1 transition-all"
-                      title={lang === 'ar' ? 'إعادة الصورة الافتراضية' : 'Reset to default image'}
-                    >
-                      <RefreshCw className="w-3.5 h-3.5 text-emerald-400" />
-                    </button>
-                  )}
-                </div>
+            {/* Direct Upload Section */}
+            <div className="mb-4 p-4 rounded-2xl bg-slate-800/90 border border-emerald-500/40 text-center space-y-3">
+              <div className="text-xs text-emerald-300 font-bold flex items-center justify-center gap-1.5">
+                <Camera className="w-4 h-4 text-emerald-400" />
+                <span>{lang === 'ar' ? 'اختاري صورتك الحقيقية وارفعيها هنا:' : 'Upload your real portrait image:'}</span>
               </div>
-            ) : showPinInput ? (
-              <form onSubmit={handleVerifyPin} className="mb-4 p-3.5 rounded-2xl bg-slate-800/90 border border-sky-500/40 text-start space-y-2">
-                <div className="flex items-center justify-between text-xs text-sky-300 font-bold">
-                  <span className="flex items-center gap-1">
-                    <Lock className="w-3.5 h-3.5 text-sky-400" />
-                    {lang === 'ar' ? 'أدخل رمز المرور الخاص بمالك الموقع' : 'Enter Owner Passcode'}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => setShowPinInput(false)}
-                    className="text-[10px] text-slate-400 hover:text-white"
-                  >
-                    {lang === 'ar' ? 'إلغاء' : 'Cancel'}
-                  </button>
-                </div>
-                <div className="flex gap-2 pt-1">
-                  <input
-                    type="password"
-                    value={pinValue}
-                    onChange={(e) => setPinValue(e.target.value)}
-                    placeholder="1234"
-                    className="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-emerald-400"
-                    autoFocus
-                  />
-                  <button
-                    type="submit"
-                    className="px-4 py-1.5 rounded-xl text-xs font-bold bg-sky-600 hover:bg-sky-500 text-white transition-all"
-                  >
-                    {lang === 'ar' ? 'تأكيد' : 'Verify'}
-                  </button>
-                </div>
-                {pinError && <p className="text-[11px] text-rose-400 font-medium">{pinError}</p>}
-                <p className="text-[10px] text-slate-400">
-                  {lang === 'ar' ? 'رمز المرور الافتراضي لمالك الموقع: 1234' : 'Default owner pin is: 1234'}
-                </p>
-              </form>
-            ) : (
-              <div className="mb-4 text-end">
+
+              <div className="flex gap-2">
                 <button
-                  onClick={() => setShowPinInput(true)}
-                  className="text-[11px] text-slate-400 hover:text-emerald-400 font-medium inline-flex items-center gap-1 transition-colors"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="flex-1 py-2.5 px-4 rounded-xl text-xs font-extrabold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-950"
                 >
-                  <Lock className="w-3 h-3" />
-                  <span>{lang === 'ar' ? 'تغيير الصورة (خاص بمالك الموقع)' : 'Change photo (Owner only)'}</span>
+                  <Upload className="w-4 h-4" />
+                  <span>{lang === 'ar' ? 'رفع صورة سماح الحقيقية من جهازك' : 'Upload real photo from device'}</span>
                 </button>
+
+                {customAvatar && (
+                  <button
+                    onClick={handleResetAvatar}
+                    className="py-2.5 px-3 rounded-xl text-xs font-semibold bg-slate-700 hover:bg-slate-600 text-slate-200 flex items-center justify-center gap-1 transition-all"
+                    title={lang === 'ar' ? 'إعادة الصورة الافتراضية' : 'Reset default image'}
+                  >
+                    <RefreshCw className="w-4 h-4 text-emerald-400" />
+                  </button>
+                )}
               </div>
-            )}
+
+              {uploadSuccessMsg && (
+                <p className="text-xs text-emerald-300 font-bold animate-pulse">{uploadSuccessMsg}</p>
+              )}
+            </div>
 
             <div className="p-3 rounded-2xl bg-emerald-950/80 border border-emerald-700/50 text-xs text-emerald-200">
               {lang === 'ar'
-                ? 'الصورة الشخصية الرسمية للممرضة والمصممة سماح ربيع'
-                : 'Official profile portrait for Samah Rabie'}
+                ? 'تتيح لكِ هذه الخاصية رفع صورتك الشخصية الحقيقية وسوف تحفظ تلقائياً في موقعك.'
+                : 'This feature lets you upload your real photo and saves it automatically to your site.'}
             </div>
           </div>
         </div>
