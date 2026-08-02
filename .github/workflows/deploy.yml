@@ -6,12 +6,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
@@ -28,8 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build static site for GitHub Pages
-        run: npm run build:github
+      - name: Build site with Vite
+        run: npx vite build
 
       - name: Add .nojekyll file
         run: touch dist/.nojekyll
@@ -39,19 +33,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        continue-on-error: true
-
-      - name: Upload artifact for GitHub Actions Pages
-        uses: actions/upload-pages-artifact@v3
-        continue-on-error: true
-        with:
-          path: './dist'
-
-      - name: Deploy to GitHub Pages Action
-        id: deployment
-        uses: actions/deploy-pages@v4
-        continue-on-error: true
 
