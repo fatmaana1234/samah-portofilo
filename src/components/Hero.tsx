@@ -3,7 +3,6 @@ import { Language, Theme } from '../types';
 import { translations } from '../data/translations';
 import { generateVCardDownload } from '../utils/vcard';
 import { GOOGLE_DRIVE_FOLDER_URL } from '../data/portfolioData';
-import samahAvatarImg from '../assets/images/samah_exact_portrait_1785632599272.jpg';
 import { 
   Sparkles, 
   ArrowLeft, 
@@ -17,6 +16,8 @@ import {
   Mail,
   X,
   Stethoscope,
+  HeartPulse,
+  Activity,
   ZoomIn,
   Lock,
   Unlock,
@@ -82,7 +83,6 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
     setTimeout(() => setUploadSuccessMsg(''), 3000);
   };
 
-  const activeAvatarSrc = customAvatar || samahAvatarImg;
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight;
 
   return (
@@ -248,20 +248,40 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
                   </span>
                 </div>
 
-                {/* Avatar Graphic Illustration Container (Circular Photo of Samah) */}
+                {/* Avatar Graphic Illustration Container (Nursing Emblem or Custom Photo) */}
                 <div 
                   className="relative my-2 group cursor-pointer transition-transform duration-300 hover:scale-[1.03]"
                   onClick={() => setShowPhotoModal(true)}
-                  title={lang === 'ar' ? 'انقر لتكبير أو تغيير صورة سماح الحقيقية' : 'Click to view or upload Samah photo'}
+                  title={lang === 'ar' ? 'انقر لرفع صورتك الشخصية الحقيقية' : 'Click to view or upload your real photo'}
                 >
                   <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1.5 bg-gradient-to-tr from-emerald-400 via-teal-300 to-sky-400 shadow-xl relative animate-pulse">
                     <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-emerald-300/40">
-                      <img
-                        src={activeAvatarSrc}
-                        alt="Samah Rabie - Nursing & Healthcare Professional"
-                        className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500"
-                        referrerPolicy="no-referrer"
-                      />
+                      {customAvatar ? (
+                        <img
+                          src={customAvatar}
+                          alt="Samah Rabie - Real Photo"
+                          className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="w-full h-full rounded-full bg-gradient-to-br from-emerald-800 via-teal-900 to-slate-950 flex flex-col items-center justify-center p-3 text-white border border-emerald-400/30 shadow-inner group-hover:scale-105 transition-transform duration-500 relative overflow-hidden">
+                          {/* Animated Ambient Pulse Background */}
+                          <div className="absolute inset-0 bg-emerald-500/10 animate-pulse pointer-events-none" />
+                          
+                          <div className="relative flex items-center justify-center mb-1">
+                            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-950/80 border-2 border-emerald-400/70 flex items-center justify-center shadow-lg shadow-emerald-950">
+                              <Stethoscope className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-300 drop-shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
+                            </div>
+                            <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-sky-500 border-2 border-slate-950 flex items-center justify-center shadow-md">
+                              <HeartPulse className="w-4 h-4 text-white animate-pulse" />
+                            </div>
+                          </div>
+
+                          <span className="text-[11px] sm:text-xs font-black tracking-wide text-emerald-200 drop-shadow text-center">
+                            {lang === 'ar' ? 'تمريض جامعة قنا 🩺' : 'Qena Nursing 🩺'}
+                          </span>
+                        </div>
+                      )}
+                      
                       {/* Hover Overlay Icon */}
                       <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
                         <ZoomIn className="w-8 h-8 text-emerald-300 animate-pulse" />
@@ -276,7 +296,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
                       fileInputRef.current?.click();
                     }}
                     className="absolute -bottom-1 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] shadow-lg border border-emerald-300 flex items-center gap-1.5 z-20 hover:scale-105 transition-all"
-                    title={lang === 'ar' ? 'رفع صورتك الحقيقية من الجهاز' : 'Upload your photo'}
+                    title={lang === 'ar' ? 'رفع صورتك الحقيقية من الجهاز' : 'Upload your real photo'}
                   >
                     <Camera className="w-3.5 h-3.5 text-emerald-200 animate-pulse" />
                     <span>{lang === 'ar' ? 'رفع صورة سماح' : 'Upload photo'}</span>
@@ -359,13 +379,28 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
               <X className="w-5 h-5" />
             </button>
 
-            <div className="w-56 h-56 mx-auto rounded-full p-2 bg-gradient-to-tr from-emerald-400 via-teal-300 to-sky-400 shadow-2xl mb-4 relative group">
-              <img
-                src={activeAvatarSrc}
-                alt="Samah Rabie - Nursing Professional"
-                className="w-full h-full object-cover rounded-full border-2 border-emerald-200/50"
-                referrerPolicy="no-referrer"
-              />
+            <div className="w-56 h-56 mx-auto rounded-full p-2 bg-gradient-to-tr from-emerald-400 via-teal-300 to-sky-400 shadow-2xl mb-4 relative overflow-hidden">
+              {customAvatar ? (
+                <img
+                  src={customAvatar}
+                  alt="Samah Rabie - Nursing Professional"
+                  className="w-full h-full object-cover rounded-full border-2 border-emerald-200/50"
+                />
+              ) : (
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-emerald-800 via-teal-900 to-slate-950 flex flex-col items-center justify-center p-4 text-white border-2 border-emerald-300/40 shadow-inner">
+                  <div className="relative flex items-center justify-center mb-2">
+                    <div className="w-20 h-20 rounded-full bg-slate-950/80 border-2 border-emerald-400/70 flex items-center justify-center shadow-xl shadow-emerald-950">
+                      <Stethoscope className="w-12 h-12 text-emerald-300 drop-shadow-[0_0_15px_rgba(52,211,153,0.9)]" />
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-sky-500 border-2 border-slate-950 flex items-center justify-center shadow-md">
+                      <HeartPulse className="w-5 h-5 text-white animate-pulse" />
+                    </div>
+                  </div>
+                  <span className="text-xs font-black tracking-wide text-emerald-200 drop-shadow text-center">
+                    {lang === 'ar' ? 'شعار التمريض والرعاية الصحية 🩺' : 'Nursing & Healthcare Symbol 🩺'}
+                  </span>
+                </div>
+              )}
             </div>
 
             <h3 className="text-lg font-black text-slate-100 mb-1">
