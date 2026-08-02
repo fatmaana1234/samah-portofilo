@@ -85,7 +85,7 @@ export const AdminLoginModal: React.FC<AdminLoginModalProps> = ({
                 setUsername(e.target.value);
                 setError(false);
               }}
-              placeholder="e.g. samahana"
+              placeholder={lang === 'ar' ? 'اسم المستخدم' : 'Username'}
               className={`w-full px-4 py-2.5 rounded-xl text-xs border outline-none ${
                 isDark ? 'bg-slate-950 border-purple-900/50 text-white focus:border-purple-500' : 'bg-slate-50 border-purple-200 text-slate-900'
               }`}

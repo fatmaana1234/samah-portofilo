@@ -562,7 +562,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
               </div>
 
               <div className="pt-2 text-[11px] text-slate-500 text-center border-t border-slate-800">
-                {lang === 'ar' ? 'كلمة المرور المعتمدة لمالكة الموقع: samahana@#1' : 'Owner passcode: samahana@#1'}
+                {lang === 'ar' ? 'خاص بمالكة الموقع فقط 🔒' : 'Restricted to site owner only 🔒'}
               </div>
             </form>
           </div>

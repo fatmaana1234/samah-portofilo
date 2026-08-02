@@ -86,7 +86,7 @@ export const translations = {
     adminModalSubtitle: 'يرجى إدخال اسم المستخدم وكلمة السر للتحقق من هويتك كمالك للموقع وإضافة الأعمال.',
     labelUsername: 'اسم المستخدم (Username)',
     labelPassword: 'كلمة السر (Password)',
-    adminLoginHint: 'اسم المستخدم: samahana | كلمة السر: samahana@#1',
+    adminLoginHint: 'هذه المنطقة مخصصة فقط لمالكة الموقع (سماح) لإضافة وتعديل المشاريع 🔒',
     btnLoginSubmit: 'تسجيل الدخول والتفعيل ✨',
     loginErrorMsg: 'اسم المستخدم أو كلمة السر غير صحيحة!',
 
@@ -233,7 +233,7 @@ export const translations = {
     adminModalSubtitle: 'Please enter your admin credentials to verify identity and enable project uploading.',
     labelUsername: 'Username',
     labelPassword: 'Password',
-    adminLoginHint: 'Username: samahana | Password: samahana@#1',
+    adminLoginHint: 'This area is strictly restricted to site owner (Samah) 🔒',
     btnLoginSubmit: 'Authenticate & Unlock ✨',
     loginErrorMsg: 'Invalid username or password!',
 
