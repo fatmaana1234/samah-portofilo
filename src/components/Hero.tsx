@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Language, Theme } from '../types';
 import { translations } from '../data/translations';
 import { generateVCardDownload } from '../utils/vcard';
@@ -18,13 +18,7 @@ import {
   Stethoscope,
   HeartPulse,
   Activity,
-  ZoomIn,
-  Lock,
-  Unlock,
-  Upload,
-  RefreshCw,
-  Camera,
-  ShieldCheck
+  ZoomIn
 } from 'lucide-react';
 
 interface HeroProps {
@@ -39,91 +33,6 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
   const isRtl = lang === 'ar';
   
   const [showPhotoModal, setShowPhotoModal] = useState(false);
-  const [customAvatar, setCustomAvatar] = useState<string | null>(null);
-  const [uploadSuccessMsg, setUploadSuccessMsg] = useState('');
-  
-  // Owner Authentication Protection State
-  const [isOwnerUnlocked, setIsOwnerUnlocked] = useState<boolean>(() => {
-    return sessionStorage.getItem('samah_owner_unlocked') === 'true';
-  });
-  const [showPinModal, setShowPinModal] = useState(false);
-  const [pinValue, setPinValue] = useState('');
-  const [pinError, setPinError] = useState('');
-
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    const saved = localStorage.getItem('samah_custom_avatar_url');
-    if (saved) {
-      setCustomAvatar(saved);
-    }
-  }, []);
-
-  const handleTriggerUpload = () => {
-    if (isOwnerUnlocked) {
-      fileInputRef.current?.click();
-    } else {
-      setShowPinModal(true);
-    }
-  };
-
-  const handleVerifyPin = (e: React.FormEvent) => {
-    e.preventDefault();
-    const cleanPin = pinValue.trim();
-    if (cleanPin === 'samahana@#1') {
-      setIsOwnerUnlocked(true);
-      sessionStorage.setItem('samah_owner_unlocked', 'true');
-      setShowPinModal(false);
-      setPinValue('');
-      setPinError('');
-      setTimeout(() => {
-        fileInputRef.current?.click();
-      }, 200);
-    } else {
-      setPinError(lang === 'ar' ? 'كلمة المرور غير صحيحة! يقتصر الرفع على سماح فقط.' : 'Incorrect passcode! Only Samah can upload photos.');
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!isOwnerUnlocked) {
-      alert(lang === 'ar' ? 'عذراً، يقتصر تغيير الصور على مالكة الموقع (سماح) فقط.' : 'Upload is restricted to the site owner (Samah) only.');
-      return;
-    }
-
-    const file = e.target.files?.[0];
-    if (file) {
-      if (!file.type.startsWith('image/')) {
-        alert(lang === 'ar' ? 'الرجاء اختيار ملف صورة صحيح (PNG, JPG, JPEG, WEBP)' : 'Please select a valid image file');
-        return;
-      }
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const result = event.target?.result as string;
-        if (result) {
-          setCustomAvatar(result);
-          try {
-            localStorage.setItem('samah_custom_avatar_url', result);
-          } catch (err) {
-            console.warn('LocalStorage size limit exceeded:', err);
-          }
-          setUploadSuccessMsg(lang === 'ar' ? 'تم رفع صورة سماح الحقيقية وحفظها بنجاح! ✨' : 'Samah real photo uploaded successfully! ✨');
-          setTimeout(() => setUploadSuccessMsg(''), 4000);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleResetAvatar = () => {
-    if (!isOwnerUnlocked) {
-      setShowPinModal(true);
-      return;
-    }
-    setCustomAvatar(null);
-    localStorage.removeItem('samah_custom_avatar_url');
-    setUploadSuccessMsg(lang === 'ar' ? 'تمت إعادة الشعار الافتراضي' : 'Reset to default emblem');
-    setTimeout(() => setUploadSuccessMsg(''), 3000);
-  };
 
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight;
 
@@ -290,39 +199,31 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
                   </span>
                 </div>
 
-                {/* Avatar Graphic Illustration Container (Nursing Emblem or Custom Photo) */}
+                {/* Avatar Graphic Illustration Container (Nursing Stethoscope Emblem) */}
                 <div 
                   className="relative my-2 group cursor-pointer transition-transform duration-300 hover:scale-[1.03]"
                   onClick={() => setShowPhotoModal(true)}
-                  title={lang === 'ar' ? 'انقر لرفع صورتك الشخصية الحقيقية' : 'Click to view or upload your real photo'}
+                  title={lang === 'ar' ? 'شعار التمريض والرعاية الصحية الخاصة بسماح ربيع' : 'Samah Rabie Nursing & Healthcare Emblem'}
                 >
                   <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1.5 bg-gradient-to-tr from-emerald-400 via-teal-300 to-sky-400 shadow-xl relative animate-pulse">
                     <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-emerald-300/40">
-                      {customAvatar ? (
-                        <img
-                          src={customAvatar}
-                          alt="Samah Rabie - Real Photo"
-                          className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500"
-                        />
-                      ) : (
-                        <div className="w-full h-full rounded-full bg-gradient-to-br from-emerald-800 via-teal-900 to-slate-950 flex flex-col items-center justify-center p-3 text-white border border-emerald-400/30 shadow-inner group-hover:scale-105 transition-transform duration-500 relative overflow-hidden">
-                          {/* Animated Ambient Pulse Background */}
-                          <div className="absolute inset-0 bg-emerald-500/10 animate-pulse pointer-events-none" />
-                          
-                          <div className="relative flex items-center justify-center mb-1">
-                            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-950/80 border-2 border-emerald-400/70 flex items-center justify-center shadow-lg shadow-emerald-950">
-                              <Stethoscope className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-300 drop-shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
-                            </div>
-                            <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-sky-500 border-2 border-slate-950 flex items-center justify-center shadow-md">
-                              <HeartPulse className="w-4 h-4 text-white animate-pulse" />
-                            </div>
+                      <div className="w-full h-full rounded-full bg-gradient-to-br from-emerald-800 via-teal-900 to-slate-950 flex flex-col items-center justify-center p-3 text-white border border-emerald-400/30 shadow-inner group-hover:scale-105 transition-transform duration-500 relative overflow-hidden">
+                        {/* Animated Ambient Pulse Background */}
+                        <div className="absolute inset-0 bg-emerald-500/10 animate-pulse pointer-events-none" />
+                        
+                        <div className="relative flex items-center justify-center mb-1">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-slate-950/80 border-2 border-emerald-400/70 flex items-center justify-center shadow-lg shadow-emerald-950">
+                            <Stethoscope className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-300 drop-shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
                           </div>
-
-                          <span className="text-[11px] sm:text-xs font-black tracking-wide text-emerald-200 drop-shadow text-center">
-                            {lang === 'ar' ? 'تمريض جامعة قنا 🩺' : 'Qena Nursing 🩺'}
-                          </span>
+                          <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-sky-500 border-2 border-slate-950 flex items-center justify-center shadow-md">
+                            <HeartPulse className="w-4 h-4 text-white animate-pulse" />
+                          </div>
                         </div>
-                      )}
+
+                        <span className="text-[11px] sm:text-xs font-black tracking-wide text-emerald-200 drop-shadow text-center">
+                          {lang === 'ar' ? 'تمريض جامعة قنا 🩺' : 'Qena Nursing 🩺'}
+                        </span>
+                      </div>
                       
                       {/* Hover Overlay Icon */}
                       <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
@@ -330,27 +231,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
                       </div>
                     </div>
                   </div>
-
-                  {/* Direct Quick Upload Badge Button */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleTriggerUpload();
-                    }}
-                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] shadow-lg border border-emerald-300 flex items-center gap-1.5 z-20 hover:scale-105 transition-all"
-                    title={lang === 'ar' ? 'رفع صورتك الحقيقية (خاص بمالكة الموقع)' : 'Upload your real photo (Owner only)'}
-                  >
-                    <Camera className="w-3.5 h-3.5 text-emerald-200 animate-pulse" />
-                    <span>{lang === 'ar' ? 'رفع صورة سماح' : 'Upload photo'}</span>
-                  </button>
                 </div>
-
-                {/* Notification toast if photo updated */}
-                {uploadSuccessMsg && (
-                  <div className="w-full my-2 p-2 rounded-xl bg-emerald-900/90 border border-emerald-400 text-emerald-200 text-xs font-bold text-center animate-in fade-in z-20">
-                    {uploadSuccessMsg}
-                  </div>
-                )}
 
                 {/* Bottom Quick Info */}
                 <div className={`w-full z-10 pt-2 border-t ${isDark ? 'border-emerald-900/40' : 'border-emerald-200'}`}>
@@ -401,16 +282,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
         </div>
       </div>
 
-      {/* Hidden File Input for Device Photo Upload */}
-      <input
-        type="file"
-        ref={fileInputRef}
-        onChange={handleFileChange}
-        accept="image/*"
-        className="hidden"
-      />
-
-      {/* Enlarged Photo Modal with Direct Upload Controls */}
+      {/* Enlarged Emblem Modal */}
       {showPhotoModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-300">
           <div className="relative max-w-md w-full p-6 bg-slate-900 border border-emerald-500/40 rounded-3xl text-center shadow-2xl">
@@ -422,149 +294,33 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
             </button>
 
             <div className="w-56 h-56 mx-auto rounded-full p-2 bg-gradient-to-tr from-emerald-400 via-teal-300 to-sky-400 shadow-2xl mb-4 relative overflow-hidden">
-              {customAvatar ? (
-                <img
-                  src={customAvatar}
-                  alt="Samah Rabie - Nursing Professional"
-                  className="w-full h-full object-cover rounded-full border-2 border-emerald-200/50"
-                />
-              ) : (
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-emerald-800 via-teal-900 to-slate-950 flex flex-col items-center justify-center p-4 text-white border-2 border-emerald-300/40 shadow-inner">
-                  <div className="relative flex items-center justify-center mb-2">
-                    <div className="w-20 h-20 rounded-full bg-slate-950/80 border-2 border-emerald-400/70 flex items-center justify-center shadow-xl shadow-emerald-950">
-                      <Stethoscope className="w-12 h-12 text-emerald-300 drop-shadow-[0_0_15px_rgba(52,211,153,0.9)]" />
-                    </div>
-                    <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-sky-500 border-2 border-slate-950 flex items-center justify-center shadow-md">
-                      <HeartPulse className="w-5 h-5 text-white animate-pulse" />
-                    </div>
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-emerald-800 via-teal-900 to-slate-950 flex flex-col items-center justify-center p-4 text-white border-2 border-emerald-300/40 shadow-inner">
+                <div className="relative flex items-center justify-center mb-2">
+                  <div className="w-20 h-20 rounded-full bg-slate-950/80 border-2 border-emerald-400/70 flex items-center justify-center shadow-xl shadow-emerald-950">
+                    <Stethoscope className="w-12 h-12 text-emerald-300 drop-shadow-[0_0_15px_rgba(52,211,153,0.9)]" />
                   </div>
-                  <span className="text-xs font-black tracking-wide text-emerald-200 drop-shadow text-center">
-                    {lang === 'ar' ? 'شعار التمريض والرعاية الصحية 🩺' : 'Nursing & Healthcare Symbol 🩺'}
-                  </span>
+                  <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-sky-500 border-2 border-slate-950 flex items-center justify-center shadow-md">
+                    <HeartPulse className="w-5 h-5 text-white animate-pulse" />
+                  </div>
                 </div>
-              )}
+                <span className="text-xs font-black tracking-wide text-emerald-200 drop-shadow text-center">
+                  {lang === 'ar' ? 'شعار التمريض والرعاية الصحية 🩺' : 'Nursing & Healthcare Symbol 🩺'}
+                </span>
+              </div>
             </div>
 
             <h3 className="text-lg font-black text-slate-100 mb-1">
               {lang === 'ar' ? 'سماح ربيع محمود علي' : 'Samah Rabie Mahmoud Ali'}
             </h3>
-            <p className="text-xs text-emerald-400 font-semibold mb-5">
+            <p className="text-xs text-emerald-400 font-semibold mb-4">
               {lang === 'ar' ? 'امتياز تمريض بجامعة قنا & مصممة محتوى وجرافيك' : 'Qena Nursing Intern & Graphic Designer'}
             </p>
 
-            {/* Direct Upload Section */}
-            <div className="mb-4 p-4 rounded-2xl bg-slate-800/90 border border-emerald-500/40 text-center space-y-3">
-              <div className="text-xs text-emerald-300 font-bold flex items-center justify-center gap-1.5">
-                <Camera className="w-4 h-4 text-emerald-400" />
-                <span>{lang === 'ar' ? 'اختاري صورتك الحقيقية وارفعيها هنا:' : 'Upload your real portrait image:'}</span>
-              </div>
-
-              <div className="flex gap-2">
-                <button
-                  onClick={handleTriggerUpload}
-                  className="flex-1 py-2.5 px-4 rounded-xl text-xs font-extrabold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-950"
-                >
-                  <Upload className="w-4 h-4" />
-                  <span>{lang === 'ar' ? 'رفع صورة سماح الحقيقية من جهازك' : 'Upload real photo from device'}</span>
-                </button>
-
-                {customAvatar && (
-                  <button
-                    onClick={handleResetAvatar}
-                    className="py-2.5 px-3 rounded-xl text-xs font-semibold bg-slate-700 hover:bg-slate-600 text-slate-200 flex items-center justify-center gap-1 transition-all"
-                    title={lang === 'ar' ? 'إعادة الصورة الافتراضية' : 'Reset default image'}
-                  >
-                    <RefreshCw className="w-4 h-4 text-emerald-400" />
-                  </button>
-                )}
-              </div>
-
-              {uploadSuccessMsg && (
-                <p className="text-xs text-emerald-300 font-bold animate-pulse">{uploadSuccessMsg}</p>
-              )}
-            </div>
-
-            <div className="p-3 rounded-2xl bg-emerald-950/80 border border-emerald-700/50 text-xs text-emerald-200">
+            <div className="p-3.5 rounded-2xl bg-emerald-950/80 border border-emerald-700/50 text-xs text-emerald-200 leading-relaxed">
               {lang === 'ar'
-                ? 'تتيح لكِ هذه الخاصية رفع صورتك الشخصية الحقيقية وسوف تحفظ تلقائياً في موقعك.'
-                : 'This feature lets you upload your real photo and saves it automatically to your site.'}
+                ? 'شعار سماح ربيع المميز - يرمز للتفوق والأمانة العلمية في التمريض والرعاية الصحية بجامعة قنا وتصاميم الجرافيك التخصصية.'
+                : 'Samah Rabie Emblem - Symbolizing healthcare & graphic design expertise.'}
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* Owner Protection PIN Verification Modal */}
-      {showPinModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-300">
-          <div className="relative max-w-sm w-full p-6 bg-slate-900 border border-emerald-500/50 rounded-3xl text-start shadow-2xl">
-            <button
-              onClick={() => {
-                setShowPinModal(false);
-                setPinError('');
-                setPinValue('');
-              }}
-              className="absolute top-4 end-4 p-2 rounded-full bg-slate-800 text-slate-300 hover:text-white hover:bg-emerald-950 transition-all"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 flex items-center justify-center mb-4 shadow-lg shadow-emerald-950">
-              <Lock className="w-6 h-6 text-emerald-300" />
-            </div>
-
-            <h3 className="text-base font-black text-slate-100 mb-1">
-              {lang === 'ar' ? 'حماية رفع الصور (خاص بسماح 🔒)' : 'Photo Upload Protection (Samah Only 🔒)'}
-            </h3>
-            <p className="text-xs text-slate-400 mb-4 leading-relaxed">
-              {lang === 'ar'
-                ? 'لحماية موقعك من قيام أي زائر بتغيير صورتك، يرجى إدخال كلمة المرور الخاصة بكِ لتفعيل الرفع:'
-                : 'To prevent visitors from changing your photo, please enter your owner passcode:'}
-            </p>
-
-            <form onSubmit={handleVerifyPin} className="space-y-3">
-              <div>
-                <label className="block text-xs font-bold text-emerald-300 mb-1">
-                  {lang === 'ar' ? 'كلمة المرور:' : 'Passcode:'}
-                </label>
-                <input
-                  type="password"
-                  value={pinValue}
-                  onChange={(e) => {
-                    setPinValue(e.target.value);
-                    setPinError('');
-                  }}
-                  placeholder="••••••••"
-                  className="w-full bg-slate-950 border border-emerald-500/40 rounded-xl px-3.5 py-2 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-emerald-400 transition-colors"
-                  autoFocus
-                />
-              </div>
-
-              {pinError && (
-                <div className="p-2 rounded-xl bg-rose-950/80 border border-rose-600/50 text-rose-300 text-xs font-semibold">
-                  {pinError}
-                </div>
-              )}
-
-              <div className="flex gap-2 pt-1">
-                <button
-                  type="submit"
-                  className="flex-1 py-2.5 px-4 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg transition-all"
-                >
-                  {lang === 'ar' ? 'تأكيد ودخول الرفع ✨' : 'Verify & Open Upload ✨'}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setShowPinModal(false)}
-                  className="py-2.5 px-3 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all"
-                >
-                  {lang === 'ar' ? 'إلغاء' : 'Cancel'}
-                </button>
-              </div>
-
-              <div className="pt-2 text-[11px] text-slate-500 text-center border-t border-slate-800">
-                {lang === 'ar' ? 'خاص بمالكة الموقع فقط 🔒' : 'Restricted to site owner only 🔒'}
-              </div>
-            </form>
           </div>
         </div>
       )}
