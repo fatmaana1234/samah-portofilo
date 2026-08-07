@@ -1,9 +1,9 @@
 export const translations = {
   ar: {
     // Header & Meta
-    name: 'سماح ربيع محمود علي',
+    name: 'منى كامل',
     title: 'امتياز تمريض | مصممة محتوى رقمي وجرافيك (بوربوينت، وورد، بوسترات، فيديوهات، وسوشيال ميديا)',
-    shortName: 'سماح ربيع',
+    shortName: 'منى كامل',
     availableBadge: 'متاحة لتصميم العروض والمشاريع الرقمية والطبية',
     
     // Nav
@@ -34,7 +34,7 @@ export const translations = {
     statVolunteeringSub: 'YLY وقيادة لجنة الصحة العامة',
 
     // About
-    aboutTitle: 'عن سماح ربيع',
+    aboutTitle: 'عن منى كامل',
     aboutSubtitle: 'الجمع بين الخبرة التمريضية والإبداع الجرافيكي الرقمي الشامل',
     aboutP1: 'أنا امتياز تمريض من محافظة الدقهلية، خريجة كلية التمريض جامعة قنا، أحمل شغفاً كبيراً بنشر التوعية الصحية والطبية وبناء الهويات البصرية المتميزة. أؤمن بأن المعلومة القيمة والمحتوى الأكاديمي أو الطبي يزداد تأثيراً عند تقديمه في قالب جرافيكي جذاب وسهل القراءة.',
     aboutP2: 'أقدم خدمات تصميم متكاملة تشمل: عروض بوربوينت البرزنتيشن، تنسيق أبحاث وتقارير Word، بوسترات وإنفوجرافيك طبي، مونتاج وتعديل الفيديوهات، وتصاميم السوشيال ميديا، مع الالتزام الكامل بالدقة وأعلى معايير الجودة.',
@@ -60,7 +60,7 @@ export const translations = {
 
     // Portfolio
     portfolioTitle: 'معرض الأعمال والملفات المرفقة',
-    portfolioSubtitle: 'تصفح أعمال سماح ربيع المقسمة حسب التخصص والمنشورة على Google Drive',
+    portfolioSubtitle: 'تصفح أعمال منى كامل المقسمة حسب التخصص والمنشورة على Google Drive',
     catAll: 'الكل',
     catExcel: 'قسم الإكسيل 📊',
     catPowerpoint: 'قسم البوربوينت 🖥️',
@@ -75,18 +75,18 @@ export const translations = {
     btnOpenDriveFolder: 'فتح مجلد الأعمال على جوجل درايف 🔗',
 
     // Portfolio Admin Control & Protection
-    portfolioProtectedNotice: 'نموذج إضافة الأعمال محمي ومخصص فقط للمالك (سماح ربيع) بواسطة كلمة السر والاسم.',
+    portfolioProtectedNotice: 'نموذج إضافة الأعمال محمي ومخصص فقط للمالك (منى كامل) بواسطة كلمة السر والاسم.',
     btnAdminLogin: 'تسجيل دخول المالك لإضافة أعمال 🔐',
     btnAddNewWork: 'إضافة عمل جديد ➕',
     btnAdminLogout: 'تسجيل الخروج 🔒',
-    adminLoggedInStatus: 'مرحباً سماح! يمكنك الآن إضافة وتعديل الأعمال مباشرة 🔓',
+    adminLoggedInStatus: 'مرحباً منى! يمكنك الآن إضافة وتعديل الأعمال مباشرة 🔓',
     
     // Admin Login Modal
-    adminModalTitle: 'تسجيل دخول المالك (سماح ربيع)',
+    adminModalTitle: 'تسجيل دخول المالك (منى كامل)',
     adminModalSubtitle: 'يرجى إدخال اسم المستخدم وكلمة السر للتحقق من هويتك كمالك للموقع وإضافة الأعمال.',
     labelUsername: 'اسم المستخدم (Username)',
     labelPassword: 'كلمة السر (Password)',
-    adminLoginHint: 'هذه المنطقة مخصصة فقط لمالكة الموقع (سماح) لإضافة وتعديل المشاريع 🔒',
+    adminLoginHint: 'هذه المنطقة مخصصة فقط لمالكة الموقع (منى) لإضافة وتعديل المشاريع 🔒',
     btnLoginSubmit: 'تسجيل الدخول والتفعيل ✨',
     loginErrorMsg: 'اسم المستخدم أو كلمة السر غير صحيحة!',
 
@@ -98,7 +98,7 @@ export const translations = {
     btnFullscreen: 'عرض ملء الشاشة',
 
     // Modal Add Project
-    modalAddTitle: 'إضافة عمل جديد للمعرَض (خاص بسماح)',
+    modalAddTitle: 'إضافة عمل جديد للمعرَض (خاص بمنى)',
     labelProjTitleAr: 'عنوان العمل (بالعربية)',
     labelProjTitleEn: 'Title (In English)',
     labelCategory: 'القسم',
@@ -116,7 +116,7 @@ export const translations = {
     expSubtitle: 'مسيرة أكاديمية تمريضية ممزوجة بالعمل التطوعي والإنتاج الجرافيكي',
 
     // App Convert Modal
-    appModalTitle: 'تطبيق المحفظة الرقمية (Samah Portfolio App)',
+    appModalTitle: 'تطبيق المحفظة الرقمية (Mona Kamel Portfolio App)',
     appModalDesc: 'يمكنك تثبيت هذا الموقع كتطبيق محمول (PWA) على هاتفك الذكي لسهولة الوصول وحفظ البيانات دون الحاجة للإنترنت!',
     appModalStep1: 'افتح القائمة في متصفحك (Safari أو Chrome)',
     appModalStep2: 'اختر "إضافة إلى الشاشة الرئيسية" (Add to Home Screen)',
@@ -138,19 +138,19 @@ export const translations = {
     successMsg: 'شكراً لك! تم تجهيز وتأكيد رسالتك بنجاح.',
     contactInfoTitle: 'معلومات الاتصال المباشرة',
     locationText: 'محافظة الدقهلية، جمهورية مصر العربية',
-    emailText: 'samahrabea06@gmail.com',
-    linkedinText: 'linkedin.com/in/samah-rabie',
+    emailText: 'monakamel@gmail.com',
+    linkedinText: 'linkedin.com/in/mona-kamel',
 
     // Footer
-    footerRights: 'جميع الحقوق محفوظة © 2026 - سماح ربيع محمود علي',
+    footerRights: 'جميع الحقوق محفوظة © 2026 - منى كامل',
     footerSub: 'امتياز تمريض & مصممة محتوى رقمي وجرافيك (بوربوينت، وورد، فيديوهات، وتصاميم طبية). جامعة قنا، مصر.',
     btnBackToTop: 'الأعلى ⬆️'
   },
   en: {
     // Header & Meta
-    name: 'Samah Rabie Mahmoud Ali',
+    name: 'Mona Kamel',
     title: 'Nursing Intern | Comprehensive Digital Content & Graphic Designer (PowerPoint, Word, Video, Medical Posters)',
-    shortName: 'Samah Rabie',
+    shortName: 'Mona Kamel',
     availableBadge: 'Available for Presentations, Word Docs & Graphic Design',
     
     // Nav
@@ -181,7 +181,7 @@ export const translations = {
     statVolunteeringSub: 'YLY HR & Public Health Lead',
 
     // About
-    aboutTitle: 'About Samah Rabie',
+    aboutTitle: 'About Mona Kamel',
     aboutSubtitle: 'Connecting Clinical Healthcare Expertise with Multi-Disciplinary Graphic Design',
     aboutP1: 'I am a Nursing Intern from Dakahlia Governorate, Egypt, and a graduate of Faculty of Nursing, Qena University, with a strong passion for healthcare awareness and visual digital communication. I believe that clinical knowledge and academic research reach their maximum impact when paired with crisp typography, structured layouts, and appealing aesthetics.',
     aboutP2: 'I offer end-to-end design services including: high-impact PowerPoint presentations, publication-ready Word documents, clinical posters & infographics, short awareness video editing, and social media graphic design.',
@@ -207,7 +207,7 @@ export const translations = {
 
     // Portfolio
     portfolioTitle: 'My Portfolio & Uploaded Drive Files',
-    portfolioSubtitle: 'Browse Samah Rabie’s work categories hosted directly on Google Drive',
+    portfolioSubtitle: 'Browse Mona Kamel’s work categories hosted directly on Google Drive',
     catAll: 'All Work',
     catExcel: 'Excel Spreadsheets 📊',
     catPowerpoint: 'PowerPoint Decks 🖥️',
@@ -222,18 +222,18 @@ export const translations = {
     btnOpenDriveFolder: 'Open Google Drive Folder 🔗',
 
     // Portfolio Admin Control & Protection
-    portfolioProtectedNotice: 'Project addition form is protected and restricted to the owner (Samah Rabie) via password authentication.',
+    portfolioProtectedNotice: 'Project addition form is protected and restricted to the owner (Mona Kamel) via password authentication.',
     btnAdminLogin: 'Owner Login to Add Projects 🔐',
     btnAddNewWork: 'Add New Project ➕',
     btnAdminLogout: 'Sign Out 🔒',
-    adminLoggedInStatus: 'Welcome Samah! Owner mode is active. You can now add and manage portfolio items 🔓',
+    adminLoggedInStatus: 'Welcome Mona! Owner mode is active. You can now add and manage portfolio items 🔓',
     
     // Admin Login Modal
-    adminModalTitle: 'Owner Login (Samah Rabie)',
+    adminModalTitle: 'Owner Login (Mona Kamel)',
     adminModalSubtitle: 'Please enter your admin credentials to verify identity and enable project uploading.',
     labelUsername: 'Username',
     labelPassword: 'Password',
-    adminLoginHint: 'This area is strictly restricted to site owner (Samah) 🔒',
+    adminLoginHint: 'This area is strictly restricted to site owner (Mona) 🔒',
     btnLoginSubmit: 'Authenticate & Unlock ✨',
     loginErrorMsg: 'Invalid username or password!',
 
@@ -285,11 +285,11 @@ export const translations = {
     successMsg: 'Thank you! Your message has been prepared successfully.',
     contactInfoTitle: 'Direct Contact Details',
     locationText: 'Dakahlia Governorate, Egypt',
-    emailText: 'samahrabea06@gmail.com',
-    linkedinText: 'linkedin.com/in/samah-rabie',
+    emailText: 'monakamel@gmail.com',
+    linkedinText: 'linkedin.com/in/mona-kamel',
 
     // Footer
-    footerRights: 'All Rights Reserved © 2026 - Samah Rabie Mahmoud Ali',
+    footerRights: 'All Rights Reserved © 2026 - Mona Kamel',
     footerSub: 'Nursing Intern & Comprehensive Digital Content Designer (PowerPoint, Word, Video & Medical Graphics). Qena University, Egypt.',
     btnBackToTop: 'Back to Top ⬆️'
   }

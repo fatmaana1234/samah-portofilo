@@ -1,7 +1,7 @@
 import React from 'react';
 import { Language, Theme } from '../types';
 import { translations } from '../data/translations';
-import { Stethoscope, Linkedin, Mail, FolderOpen } from 'lucide-react';
+import { Stethoscope, FolderOpen } from 'lucide-react';
 import { GOOGLE_DRIVE_FOLDER_URL } from '../data/portfolioData';
 
 interface FooterProps {
@@ -52,24 +52,6 @@ export const Footer: React.FC<FooterProps> = ({ lang, theme }) => {
 
           {/* Social Links & Back to top */}
           <div className="flex items-center gap-3">
-            <a
-              href="https://linkedin.com/in/samah-rabie"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-sky-600/80 hover:bg-sky-500 text-white transition-all"
-              title="LinkedIn"
-            >
-              <Linkedin className="w-4 h-4" />
-            </a>
-
-            <a
-              href="mailto:samahrabea06@gmail.com"
-              className="p-2.5 rounded-xl bg-teal-600/80 hover:bg-teal-500 text-white transition-all"
-              title="Email: samahrabea06@gmail.com"
-            >
-              <Mail className="w-4 h-4" />
-            </a>
-
             <a
               href={GOOGLE_DRIVE_FOLDER_URL}
               target="_blank"

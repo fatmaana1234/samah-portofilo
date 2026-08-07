@@ -8,12 +8,10 @@ import {
   ArrowLeft, 
   ArrowRight, 
   Download, 
-  Linkedin, 
   GraduationCap, 
   Presentation, 
   CheckCircle2,
   FolderOpen,
-  Mail,
   X,
   Stethoscope,
   HeartPulse,
@@ -130,24 +128,6 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
               >
                 <Download className="w-5 h-5" />
               </button>
-
-              <a
-                href="https://linkedin.com/in/samah-rabie"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center p-3.5 rounded-2xl bg-sky-600/90 text-white hover:bg-sky-500 shadow-md shadow-sky-600/20 hover:scale-105 transition-all"
-                title={t.heroCtaLinkedIn}
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-
-              <a
-                href="mailto:samahrabea06@gmail.com"
-                className="inline-flex items-center justify-center p-3.5 rounded-2xl bg-teal-600/90 text-white hover:bg-teal-500 shadow-md shadow-teal-600/20 hover:scale-105 transition-all"
-                title="samahrabea06@gmail.com"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
             </div>
 
             {/* Quick Trust Highlights */}
@@ -203,7 +183,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
                 <div 
                   className="relative my-2 group cursor-pointer transition-transform duration-300 hover:scale-[1.03]"
                   onClick={() => setShowPhotoModal(true)}
-                  title={lang === 'ar' ? 'شعار التمريض والرعاية الصحية الخاصة بسماح ربيع' : 'Samah Rabie Nursing & Healthcare Emblem'}
+                  title={lang === 'ar' ? 'شعار التمريض والرعاية الصحية الخاصة بمنى كامل' : 'Mona Kamel Nursing & Healthcare Emblem'}
                 >
                   <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1.5 bg-gradient-to-tr from-emerald-400 via-teal-300 to-sky-400 shadow-xl relative animate-pulse">
                     <div className="w-full h-full rounded-full overflow-hidden relative border-2 border-emerald-300/40">
@@ -236,7 +216,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
                 {/* Bottom Quick Info */}
                 <div className={`w-full z-10 pt-2 border-t ${isDark ? 'border-emerald-900/40' : 'border-emerald-200'}`}>
                   <div className={`text-xs font-bold mb-1 ${isDark ? 'text-slate-200' : 'text-slate-900 font-black'}`}>
-                    {lang === 'ar' ? 'سماح ربيع محمود علي' : 'Samah Rabie Mahmoud Ali'}
+                    {lang === 'ar' ? 'منى كامل' : 'Mona Kamel'}
                   </div>
                   <div className={`text-[11px] font-bold ${isDark ? 'text-emerald-400' : 'text-emerald-700'}`}>
                     {lang === 'ar' ? 'امتياز تمريض بجامعة قنا • مصممة جرافيك • متطوعة YLY' : 'Nursing Intern • Graphic Designer • YLY Volunteer'}
@@ -310,7 +290,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
             </div>
 
             <h3 className="text-lg font-black text-slate-100 mb-1">
-              {lang === 'ar' ? 'سماح ربيع محمود علي' : 'Samah Rabie Mahmoud Ali'}
+              {lang === 'ar' ? 'منى كامل' : 'Mona Kamel'}
             </h3>
             <p className="text-xs text-emerald-400 font-semibold mb-4">
               {lang === 'ar' ? 'امتياز تمريض بجامعة قنا & مصممة محتوى وجرافيك' : 'Qena Nursing Intern & Graphic Designer'}
@@ -318,8 +298,8 @@ export const Hero: React.FC<HeroProps> = ({ lang, theme, onOpenOrderModal }) => 
 
             <div className="p-3.5 rounded-2xl bg-emerald-950/80 border border-emerald-700/50 text-xs text-emerald-200 leading-relaxed">
               {lang === 'ar'
-                ? 'شعار سماح ربيع المميز - يرمز للتفوق والأمانة العلمية في التمريض والرعاية الصحية بجامعة قنا وتصاميم الجرافيك التخصصية.'
-                : 'Samah Rabie Emblem - Symbolizing healthcare & graphic design expertise.'}
+                ? 'شعار منى كامل المميز - يرمز للتفوق والأمانة العلمية في التمريض والرعاية الصحية بجامعة قنا وتصاميم الجرافيك التخصصية.'
+                : 'Mona Kamel Emblem - Symbolizing healthcare & graphic design expertise.'}
             </div>
           </div>
         </div>

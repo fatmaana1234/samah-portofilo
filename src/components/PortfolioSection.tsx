@@ -665,8 +665,8 @@ const ProjectInspectorModal: React.FC<ProjectInspectorModalProps> = ({ project, 
       slideNumber: 1,
       titleAr: `شريحة الغلاف 01: ${title}`,
       titleEn: `Cover Slide 01: ${title}`,
-      contentAr: `تصميم وإعداد: سماح ربيع | ${desc}`,
-      contentEn: `Prepared by: Samah Rabie | ${desc}`,
+      contentAr: `تصميم وإعداد: منى كامل | ${desc}`,
+      contentEn: `Prepared by: Mona Kamel | ${desc}`,
       bgColor: 'from-emerald-950 via-teal-950 to-slate-950'
     },
     {
@@ -757,7 +757,7 @@ const ProjectInspectorModal: React.FC<ProjectInspectorModalProps> = ({ project, 
                 </div>
 
                 <div className="pt-4 border-t border-emerald-800/40 text-[11px] text-emerald-300/80 flex items-center justify-between">
-                  <span>© {lang === 'ar' ? 'تصميم: سماح ربيع' : 'Designed by Samah Rabie'}</span>
+                  <span>© {lang === 'ar' ? 'تصميم: منى كامل' : 'Designed by Mona Kamel'}</span>
                   <span>PowerPoint Presentation</span>
                 </div>
               </div>

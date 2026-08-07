@@ -337,10 +337,10 @@ export const samplePortfolioProjects: PortfolioItem[] = [
     slides: [
       {
         slideNumber: 1,
-        titleAr: 'عرض التثقيف الصحي - تصميم سماح ربيع',
-        titleEn: 'Healthcare Education Slide Deck - Designed by Samah Rabie',
-        contentAr: 'إعداد وتنسيق: سماح ربيع محمود علي | امتياز تمريض ومصممة محتوى',
-        contentEn: 'Designed by: Samah Rabie | Nursing Intern & Visual Designer',
+        titleAr: 'عرض التثقيف الصحي - تصميم منى كامل',
+        titleEn: 'Healthcare Education Slide Deck - Designed by Mona Kamel',
+        contentAr: 'إعداد وتنسيق: منى كامل | امتياز تمريض ومصممة محتوى',
+        contentEn: 'Designed by: Mona Kamel | Nursing Intern & Visual Designer',
         bgColor: 'from-emerald-900 to-teal-950'
       },
       {

@@ -8,9 +8,7 @@ import {
   X, 
   Send, 
   CheckCircle2, 
-  Presentation,
-  Mail,
-  Linkedin
+  Presentation
 } from 'lucide-react';
 
 interface ServiceOrderModalProps {
@@ -75,7 +73,7 @@ export const ServiceOrderModal: React.FC<ServiceOrderModalProps> = ({
               {lang === 'ar' ? 'طلب خدمة / مشروع جديد' : 'Request Service / Project'}
             </h3>
             <p className="text-xs text-emerald-400 font-medium">
-              {lang === 'ar' ? 'مع سماح ربيع محمود علي (المنصورة، مصر)' : 'With Samah Rabie Mahmoud Ali (Mansoura, Egypt)'}
+              {lang === 'ar' ? 'مع منى كامل (المنصورة، مصر)' : 'With Mona Kamel (Mansoura, Egypt)'}
             </p>
           </div>
         </div>
@@ -122,7 +120,7 @@ export const ServiceOrderModal: React.FC<ServiceOrderModalProps> = ({
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="samahrabea06@gmail.com"
+                  placeholder="monakamel@gmail.com"
                   className={`w-full px-4 py-2.5 rounded-xl text-xs border outline-none ${
                     isDark ? 'bg-slate-950 border-emerald-900/50 text-white focus:border-emerald-500' : 'bg-slate-50 border-emerald-200'
                   }`}

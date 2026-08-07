@@ -4,13 +4,12 @@ import { Language, Theme } from '../types';
 import { translations } from '../data/translations';
 import { 
   Sparkles, 
-  Mail, 
   MapPin, 
-  Linkedin, 
   Send, 
   CheckCircle2, 
   HeartHandshake,
-  ExternalLink
+  ExternalLink,
+  FolderOpen
 } from 'lucide-react';
 
 interface ContactSectionProps {
@@ -92,33 +91,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ lang, theme }) =
 
                 <div className="flex items-start gap-4">
                   <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center shrink-0 ${
-                    isDark ? 'bg-teal-900/40 border-teal-700/40 text-sky-300' : 'bg-teal-100 border-teal-300 text-teal-800 font-bold'
+                    isDark ? 'bg-teal-900/40 border-teal-700/40 text-emerald-300' : 'bg-teal-100 border-teal-300 text-teal-800 font-bold'
                   }`}>
-                    <Mail className="w-6 h-6" />
+                    <FolderOpen className="w-6 h-6" />
                   </div>
                   <div>
-                    <div className={`text-xs font-bold ${isDark ? 'text-emerald-400' : 'text-emerald-700'}`}>{lang === 'ar' ? 'البريد الإلكتروني' : 'Email'}</div>
-                    <a href="mailto:samahrabea06@gmail.com" className="text-sm font-semibold hover:text-sky-500 transition-colors block">
-                      samahrabea06@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center shrink-0 ${
-                    isDark ? 'bg-sky-900/40 border-sky-700/40 text-sky-300' : 'bg-sky-100 border-sky-300 text-sky-800 font-bold'
-                  }`}>
-                    <Linkedin className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className={`text-xs font-bold ${isDark ? 'text-emerald-400' : 'text-emerald-700'}`}>LinkedIn</div>
+                    <div className={`text-xs font-bold ${isDark ? 'text-emerald-400' : 'text-emerald-700'}`}>{lang === 'ar' ? 'مجلد الأعمال والمشاريع' : 'Portfolio Folder'}</div>
                     <a
-                      href="https://linkedin.com/in/samah-rabie"
+                      href="https://drive.google.com/drive/folders/1U41cf3pbylT29RUXFL-A0lLINjp0_nBI?usp=sharing"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-semibold hover:text-sky-500 transition-colors inline-flex items-center gap-1"
+                      className="text-sm font-semibold hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
                     >
-                      <span>linkedin.com/in/samah-rabie</span>
+                      <span>Google Drive Folder</span>
                       <ExternalLink className="w-3.5 h-3.5 opacity-70" />
                     </a>
                   </div>
@@ -126,26 +111,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ lang, theme }) =
               </div>
             </div>
 
-            {/* Direct Social Links */}
+            {/* Direct Drive Folder Link Button */}
             <div className={`mt-8 pt-6 border-t flex flex-col gap-3 ${isDark ? 'border-emerald-900/30' : 'border-emerald-200'}`}>
               <a
-                href="https://linkedin.com/in/samah-rabie"
+                href="https://drive.google.com/drive/folders/1U41cf3pbylT29RUXFL-A0lLINjp0_nBI?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xl text-xs font-bold bg-gradient-to-r from-sky-600 to-teal-600 text-white shadow-md hover:from-sky-500 hover:to-teal-500 flex items-center justify-center gap-2"
+                className="w-full py-3 px-4 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 text-white shadow-md hover:from-emerald-500 hover:to-sky-500 flex items-center justify-center gap-2"
               >
-                <Linkedin className="w-4 h-4" />
-                <span>{t.btnLinkedInDirect}</span>
-              </a>
-
-              <a
-                href="mailto:samahrabea06@gmail.com?subject=Inquiry%20for%20Samah%20Rabie"
-                className={`w-full py-3 px-4 rounded-xl text-xs font-bold border flex items-center justify-center gap-2 ${
-                  isDark ? 'border-emerald-500/40 bg-emerald-950/40 text-emerald-200 hover:bg-emerald-900/60' : 'border-emerald-300 bg-emerald-50 text-emerald-900 hover:bg-emerald-100'
-                }`}
-              >
-                <Mail className="w-4 h-4" />
-                <span>{t.btnEmailDirect}</span>
+                <FolderOpen className="w-4 h-4" />
+                <span>{t.btnOpenDriveFolder}</span>
               </a>
             </div>
           </div>

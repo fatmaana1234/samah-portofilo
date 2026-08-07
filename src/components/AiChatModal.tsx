@@ -10,9 +10,6 @@ import {
   User, 
   Minimize2, 
   FolderOpen, 
-  Mail, 
-  Linkedin, 
-  MapPin, 
   Stethoscope,
   RefreshCw
 } from 'lucide-react';
@@ -42,8 +39,8 @@ export const AiChatModal: React.FC<AiChatModalProps> = ({ lang, theme, onClose }
       id: 'welcome-msg',
       sender: 'bot',
       text: lang === 'ar'
-        ? `أهلاً بك! 👋 أنا مساعد الذكاء الاصطناعي لـ **سماح ربيع محمود علي**.\n\nيسعدني جداً مساعدتك في استكشاف مهاراتها في **امتياز التمريض** وخدمات **التصميم الرقمي الشامل (بوربوينت، وورد، بوسترات، فيديوهات، وسوشيال ميديا)** في المنصورة، مصر! 🌿✨`
-        : `Hello & Welcome! 👋 I am Samah Rabie's AI Assistant.\n\nI can help you explore her nursing intern background and digital graphic design services (PowerPoint, Word, Video Editing, Posters & Social Media) in Mansoura, Egypt! 🌿✨`,
+        ? `أهلاً بك! 👋 أنا مساعد الذكاء الاصطناعي لـ **منى كامل**.\n\nيسعدني جداً مساعدتك في استكشاف مهاراتها في **امتياز التمريض** وخدمات **التصميم الرقمي الشامل (بوربوينت، وورد، بوسترات، فيديوهات، وسوشيال ميديا)** في المنصورة، مصر! 🌿✨`
+        : `Hello & Welcome! 👋 I am Mona Kamel's AI Assistant.\n\nI can help you explore her nursing intern background and digital graphic design services (PowerPoint, Word, Video Editing, Posters & Social Media) in Mansoura, Egypt! 🌿✨`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -63,12 +60,10 @@ export const AiChatModal: React.FC<AiChatModalProps> = ({ lang, theme, onClose }
   const quickQuestions = lang === 'ar' ? [
     'ما هي الخدمات والتصاميم المتاحة؟ 🎨',
     'أين يمكنني مشاهدة معرض الأعمال على Google Drive؟ 📁',
-    'كيف يمكنني التواصل مع سماح عبر الإيميل ولينكدان؟ ✉️',
     'ما هي خلفيتها الأكاديمية والتمريضية؟ 🩺'
   ] : [
     'What design services are available? 🎨',
     'Where can I view the Google Drive portfolio folder? 📁',
-    'How do I contact Samah via Email and LinkedIn? ✉️',
     'What is her Nursing Intern background? 🩺'
   ];
 
@@ -125,25 +120,25 @@ export const AiChatModal: React.FC<AiChatModalProps> = ({ lang, theme, onClose }
 
     if (q.includes('درايف') || q.includes('drive') || q.includes('أعمال') || q.includes('portfolio') || q.includes('فولدر')) {
       return l === 'ar'
-        ? `📁 **مجلد أعمال سماح ربيع الكامل على Google Drive**:\nيمكنك الاطلاع المباشر على جميع العروض التقديمية، الأبحاث المنسقة، البوسترات، ومقاطع الفيديو عبر الرابط المباشر:\n\n🔗 ${GOOGLE_DRIVE_FOLDER_URL}`
-        : `📁 **Samah Rabie’s Complete Google Drive Portfolio Folder**:\nYou can view all PowerPoint decks, Word files, posters, and videos here:\n\n🔗 ${GOOGLE_DRIVE_FOLDER_URL}`;
+        ? `📁 **مجلد أعمال منى كامل الكامل على Google Drive**:\nيمكنك الاطلاع المباشر على جميع العروض التقديمية، الأبحاث المنسقة، البوسترات، ومقاطع الفيديو عبر الرابط المباشر:\n\n🔗 ${GOOGLE_DRIVE_FOLDER_URL}`
+        : `📁 **Mona Kamel’s Complete Google Drive Portfolio Folder**:\nYou can view all PowerPoint decks, Word files, posters, and videos here:\n\n🔗 ${GOOGLE_DRIVE_FOLDER_URL}`;
     }
 
-    if (q.includes('تواصل') || q.includes('إيميل') || q.includes('email') || q.includes('linkedin') || q.includes('لينكدان') || q.includes('contact')) {
+    if (q.includes('تواصل') || q.includes('contact')) {
       return l === 'ar'
-        ? `✉️ **طرق التواصل المعتمدة حصرياً مع سماح ربيع**:\n\n• **البريد الإلكتروني**: samahrabea06@gmail.com\n• **حساب لينكدان**: https://linkedin.com/in/samah-rabie\n• **الموقع**: محافظة المنصورة، جمهورية مصر العربية 📍`
-        : `✉️ **Direct Authorized Contact Methods**:\n\n• **Email**: samahrabea06@gmail.com\n• **LinkedIn**: https://linkedin.com/in/samah-rabie\n• **Location**: Mansoura Governorate, Egypt 📍`;
+        ? `✉️ **طرق التواصل والتصفح مع منى كامل**:\n\n• **رابط مجلد أعمال درايف**: ${GOOGLE_DRIVE_FOLDER_URL}\n• **الموقع**: محافظة المنصورة، جمهورية مصر العربية 📍`
+        : `✉️ **Direct Authorized Contact Methods**:\n\n• **Drive Portfolio Folder**: ${GOOGLE_DRIVE_FOLDER_URL}\n• **Location**: Mansoura Governorate, Egypt 📍`;
     }
 
-    if (q.includes('خدمات') || q.includes('تسميم') || q.includes('بوربوينت') || q.includes('وورد') || q.includes('فيديو') || q.includes('services')) {
+    if (q.includes('خدمات') || q.includes('تصميم') || q.includes('بوربوينت') || q.includes('وورد') || q.includes('فيديو') || q.includes('services')) {
       return l === 'ar'
-        ? `🎨 **خدمات التصميم الرقمي الشاملة لـ سماح ربيع**:\n\n1. 📊 **PowerPoint**: عروض برزنتيشن طليعية ومبهرة للمؤتمرات والأبحاث.\n2. 📄 **Microsoft Word**: تنسيق وتأطير الأبحاث والتقارير وفق المعايير الأكاديمية.\n3. 🖼️ **Graphic Posters**: بوسترات وإنفوجرافيك طبي عالي الدقة HD/4K.\n4. 🎬 **Video Editing**: مونتاج فيديوهات توعوية وريلز قصيرة.\n5. 📱 **Social Media**: تصاميم وقوالب انستجرام وفيسبوك ولينكدان.`
+        ? `🎨 **خدمات التصميم الرقمي الشاملة لـ منى كامل**:\n\n1. 📊 **PowerPoint**: عروض برزنتيشن طليعية ومبهرة للمؤتمرات والأبحاث.\n2. 📄 **Microsoft Word**: تنسيق وتأطير الأبحاث والتقارير وفق المعايير الأكاديمية.\n3. 🖼️ **Graphic Posters**: بوسترات وإنفوجرافيك طبي عالي الدقة HD/4K.\n4. 🎬 **Video Editing**: مونتاج فيديوهات توعوية وريلز قصيرة.\n5. 📱 **Social Media**: تصاميم وقوالب انستجرام وفيسبوك.`
         : `🎨 **Comprehensive Digital Design Services**:\n\n1. 📊 **PowerPoint**: High-impact presentations for medical defenses and conferences.\n2. 📄 **Microsoft Word**: Formatting research papers and thesis documents.\n3. 🖼️ **Graphic Posters**: Medical & educational HD/4K posters.\n4. 🎬 **Video Editing**: Short awareness reels with subtitles.\n5. 📱 **Social Media**: Banners and Canva Pro templates.`;
     }
 
     return l === 'ar'
-      ? `أهلاً بك! سماح ربيع محمود علي هي امتياز تمريض (جامعة المنصورة، مصر) ومصممة محتوى رقمي شاملة.\n\nللتواصل المباشر:\n• **البريد الإلكتروني**: samahrabea06@gmail.com\n• **لينكدان**: https://linkedin.com/in/samah-rabie\n• **رابط أعمال درايف**: ${GOOGLE_DRIVE_FOLDER_URL}`
-      : `Hello! Samah Rabie Mahmoud Ali is a Nursing Intern (Mansoura University, Egypt) and Digital Graphic Designer.\n\n• **Email**: samahrabea06@gmail.com\n• **LinkedIn**: https://linkedin.com/in/samah-rabie\n• **Drive Folder**: ${GOOGLE_DRIVE_FOLDER_URL}`;
+      ? `أهلاً بك! منى كامل هي امتياز تمريض (جامعة المنصورة، مصر) ومصممة محتوى رقمي شاملة.\n\n• **رابط أعمال درايف**: ${GOOGLE_DRIVE_FOLDER_URL}`
+      : `Hello! Mona Kamel is a Nursing Intern (Mansoura University, Egypt) and Digital Graphic Designer.\n\n• **Drive Folder**: ${GOOGLE_DRIVE_FOLDER_URL}`;
   }
 
   return (
@@ -165,7 +160,7 @@ export const AiChatModal: React.FC<AiChatModalProps> = ({ lang, theme, onClose }
 
           <div className="flex flex-col text-start hidden sm:flex">
             <span className="text-xs font-black flex items-center gap-1">
-              <span>{lang === 'ar' ? 'مساعد سماح الذكي' : 'Samah AI Assistant'}</span>
+              <span>{lang === 'ar' ? 'مساعد منى الذكي' : 'Mona AI Assistant'}</span>
               <Sparkles className="w-3 h-3 text-emerald-400 animate-pulse" />
             </span>
             <span className="text-[10px] text-emerald-300/90 font-medium">
@@ -196,7 +191,7 @@ export const AiChatModal: React.FC<AiChatModalProps> = ({ lang, theme, onClose }
                   <span className={`bg-gradient-to-r bg-clip-text text-transparent ${
                     isDark ? 'from-emerald-300 via-teal-200 to-sky-300' : 'from-emerald-800 via-teal-800 to-sky-800'
                   }`}>
-                    {lang === 'ar' ? 'مساعد الذكاء الاصطناعي (سماح ربيع)' : 'Samah Rabie AI Assistant'}
+                    {lang === 'ar' ? 'مساعد الذكاء الاصطناعي (منى كامل)' : 'Mona Kamel AI Assistant'}
                   </span>
                 </h4>
                 <div className={`flex items-center gap-2 text-[10px] font-semibold ${isDark ? 'text-emerald-400' : 'text-emerald-700'}`}>
